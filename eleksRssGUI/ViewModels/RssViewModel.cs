@@ -14,7 +14,11 @@ namespace eleksRssGUI
             ObservableCategories = new ObservableCategories();
             ObservableRssItems = new ObservableRssItems();
 
+
+            new StorageManager();
             updateItems();
+
+
         }
 
         async Task updateItems()
