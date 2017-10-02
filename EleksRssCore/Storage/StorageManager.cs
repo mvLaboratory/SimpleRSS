@@ -13,6 +13,10 @@ namespace EleksRssCore
         public StorageManager()
         {
             Storage = new RssStorage();
+
+            Category defaultCategory = new Category("default", "");
+            Storage.Categories.Add(defaultCategory);
+            Storage.SaveChanges();
         }
     }
 }

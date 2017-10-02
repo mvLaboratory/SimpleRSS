@@ -1,1 +1,3 @@
 https://erazerbrecht.wordpress.com/2015/06/11/sqlite-entityframework-6-tutorial/
+
+http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki
