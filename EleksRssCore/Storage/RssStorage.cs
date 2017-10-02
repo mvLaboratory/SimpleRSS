@@ -12,12 +12,12 @@ namespace EleksRssCore
                                             {
                                                 ConnectionString = new SQLiteConnectionStringBuilder()
                                                 {
-                                                    DataSource = "Data Source = E:\\mvLab\\edu\\SimpleRSS\\Storage\\RssDB.db",
+                                                    DataSource = "d:\\mvLab\\edu\\SimpleRRS\\Storage\\RssDB.db",
                                                     ForeignKeys = true
                                                 }.ConnectionString
                                             }, true)
         {
-            Database.SetInitializer<RssStorage>(new Initializer());
+            Database.SetInitializer<RssStorage>(null);
 
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
