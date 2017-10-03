@@ -62,6 +62,7 @@
     </ApplicationDefinition>
     <Compile Include="Collections\ObservableCategories.cs" />
     <Compile Include="Collections\ObservableRssItems.cs" />
+    <Compile Include="Data\DataUpdater.cs" />
     <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
