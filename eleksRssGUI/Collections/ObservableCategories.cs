@@ -4,7 +4,7 @@ using EleksRssCore;
 
 namespace eleksRssGUI
 {
-    class ObservableCategories : ObservableCollection<Category>
+    class ObservableCategories : ObservableCollection<IModel>
     {
         public ObservableCategories()
         {

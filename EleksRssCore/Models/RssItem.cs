@@ -2,7 +2,7 @@
 
 namespace EleksRssCore
 {
-    public class RssItem
+    public class RssItem : IModel
     {
         public DateTime PublicationdDate { get; set; }
         public String Title { get; set; }

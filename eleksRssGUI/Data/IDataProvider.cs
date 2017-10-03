@@ -1,0 +1,7 @@
+﻿
+namespace eleksRssGUI
+{
+    interface IDataProvider
+    {
+    }
+}

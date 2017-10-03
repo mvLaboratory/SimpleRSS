@@ -11,7 +11,9 @@ namespace eleksRssGUI
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new RssViewModel();
+
+            IViewModelFactory modelViewFactory = new ViewModelFactory();
+            DataContext = modelViewFactory.GetRssViewModel();
         }
     }
 }

@@ -62,8 +62,12 @@
     </ApplicationDefinition>
     <Compile Include="Collections\ObservableCategories.cs" />
     <Compile Include="Collections\ObservableRssItems.cs" />
+    <Compile Include="Data\IDataProvider.cs" />
+    <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\IViewModelFactory.cs" />
     <Compile Include="ViewModels\RssViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelFactory.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

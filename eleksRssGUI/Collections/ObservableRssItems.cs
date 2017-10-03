@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace eleksRssGUI 
 {
-    class ObservableRssItems : ObservableCollection<RssItem>
+    class ObservableRssItems : ObservableCollection<IModel>
     {
         public ObservableRssItems()
         {

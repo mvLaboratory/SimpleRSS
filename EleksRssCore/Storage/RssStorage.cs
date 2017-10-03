@@ -12,7 +12,7 @@ namespace EleksRssCore
                                             {
                                                 ConnectionString = new SQLiteConnectionStringBuilder()
                                                 {
-                                                    DataSource = "d:\\mvLab\\edu\\SimpleRRS\\Storage\\RssDB.db",
+                                                    DataSource = Environment.CurrentDirectory + "\\Storage\\RssDB.db",
                                                     ForeignKeys = true
                                                 }.ConnectionString
                                             }, true)

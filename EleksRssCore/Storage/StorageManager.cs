@@ -14,9 +14,9 @@ namespace EleksRssCore
         {
             Storage = new RssStorage();
 
-            Category defaultCategory = new Category("default", "");
-            Storage.Categories.Add(defaultCategory);
-            Storage.SaveChanges();
+            //Category defaultCategory = new Category("default", "UI1");
+            //Storage.Categories.Add(defaultCategory);
+            //Storage.SaveChanges();
         }
     }
 }

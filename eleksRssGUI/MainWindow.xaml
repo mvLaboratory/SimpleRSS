@@ -36,9 +36,9 @@
                 <Button HorizontalAlignment="Right" Width="100">Settings</Button>
             </StackPanel>
             <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
-                <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200" Height="{Binding ElementName=CategoriesPanel, Path=ActualHeight}"
-                     ItemTemplate="{DynamicResource RssCategoryDataTemplate}">
-                </ListBox>
+                <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
+                     ItemTemplate="{DynamicResource RssCategoryDataTemplate}"/>
+                <Button Content="+"/>
             </StackPanel>
             <StackPanel x:Name="RssItemsPanel">
                 <ListBox ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" Height="{Binding ElementName=RssItemsPanel, Path=ActualHeight}"

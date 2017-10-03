@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EleksRssCore
 {
     [Table("Category")]
-    public class Category
+    public class Category : IModel
     {
         [Column("Id")]
         [Key]

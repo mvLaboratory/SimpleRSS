@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\RssItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
