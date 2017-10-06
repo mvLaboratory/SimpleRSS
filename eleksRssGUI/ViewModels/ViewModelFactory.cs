@@ -5,11 +5,9 @@ namespace eleksRssGUI
     {
         public BaseViewModel GetRssViewModel()
         {
-            IDataProvider dataProvider = new RssDataProvider();
-            BaseViewModel viewModel = new RssViewModel(dataProvider);
-
-            DataUpdater updater = new DataUpdater();
-            //updater.addItemForUpdate(viewModel.ObservableCategories);
+            BaseViewModel viewModel = new RssViewModel();
+            IDataProvider dataProvider = new RssDataProvider(viewModel);
+            DataUpdater updater = new DataUpdater(dataProvider);
             updater.Start();
 
             return viewModel;

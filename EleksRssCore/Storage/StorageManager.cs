@@ -18,5 +18,11 @@ namespace EleksRssCore
             //Storage.Categories.Add(defaultCategory);
             //Storage.SaveChanges();
         }
+
+        public void readModels()
+        {
+            Type categoriesType = typeof(Category);
+            Storage.Categories.ToList();
+        }
     }
 }

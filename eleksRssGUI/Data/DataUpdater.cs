@@ -10,29 +10,25 @@ namespace eleksRssGUI
 {
     class DataUpdater
     {
-        public DataUpdater()
+        public DataUpdater(IDataProvider dataProvider)
         {
-            _itemsForUpdate = new List<ObservableCollection<IModel>>();
-        }
-
-        public void addItemForUpdate(ObservableCollection<IModel> item)
-        {
-            _itemsForUpdate.Add(item);
-        }
+            _dataProvider = dataProvider;
+        } 
 
         async public void Start()
         {
-            await Task.Run(() => applicationRoutine());
+             await Task.Run(() => applicationRoutine());
         }
 
         private async void applicationRoutine()
         {
             while (true)
             {
+                _dataProvider.readData();
                 await Task.Delay(1000);
             }
         }
 
-        private List<ObservableCollection<IModel>> _itemsForUpdate;
+        private IDataProvider _dataProvider;
     }
 }

@@ -13,5 +13,6 @@ namespace eleksRssGUI
     /// </summary>
     public partial class App : Application
     {
+        //containe.Resolve<MainWindow>()
     }
 }

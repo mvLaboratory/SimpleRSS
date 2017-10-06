@@ -2,24 +2,27 @@
 using EleksRssCore;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+
 
 namespace eleksRssGUI
 {
     class RssViewModel : BaseViewModel
     {
-        public ObservableCollection<IModel> ObservableCategories { get; private set; }
-        public ObservableCollection<IModel> ObservableRssItems { get; private set; }
 
-        public RssViewModel(IDataProvider dataProvider)
+
+        public RssViewModel()
         {
             ObservableCategories = new ObservableCategories();
             ObservableRssItems = new ObservableRssItems();
 
+            //new StorageManager();
+            //updateItems();
+        }
 
-            new StorageManager();
-            updateItems();
-
-
+        public override TestDelegate GetDelegate()
+        {
+            return new TestDelegate(test);
         }
 
         async Task updateItems()
@@ -29,6 +32,11 @@ namespace eleksRssGUI
                 await Task.Delay(1000);
                 ObservableRssItems.Add(new RssItem("Sensation N" + i, "I am", "http", new Category("first", "")));
             }
+        }
+
+        public void test(IModel model)
+        {
+            ObservableRssItems.Add(model);
         }
     }
 }

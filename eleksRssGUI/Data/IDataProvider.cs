@@ -1,7 +1,12 @@
 ﻿
+using EleksRssCore;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 namespace eleksRssGUI
 {
-    interface IDataProvider
+    public interface IDataProvider
     {
+        void readData();
     }
 }
