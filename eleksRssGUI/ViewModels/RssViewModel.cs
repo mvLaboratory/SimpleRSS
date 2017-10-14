@@ -1,9 +1,6 @@
 ﻿using System;
 using EleksRssCore;
 using System.Threading.Tasks;
-using System.Collections.ObjectModel;
-using System.Collections.Generic;
-
 
 namespace eleksRssGUI
 {
@@ -36,7 +33,7 @@ namespace eleksRssGUI
 
         public void test(IModel model)
         {
-            ObservableRssItems.Add(model);
+            //ObservableRssItems.Add(model);
         }
     }
 }

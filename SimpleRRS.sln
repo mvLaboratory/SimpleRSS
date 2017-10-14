@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleRRS", "SimpleRRS\SimpleRRS.csproj", "{3747322E-14B1-485E-9086-ED78425BE72D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EleksRssGUI", "eleksRssGUI\EleksRssGUI.csproj", "{D7F02B02-74D5-4A63-85AA-BC82CBEB6DA3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EleksRssCore", "EleksRssCore\EleksRssCore.csproj", "{4F6F0A82-120B-4031-ADB9-2064CE3BA1F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopMainModule", "DesktopMainModule\DesktopMainModule.csproj", "{32B641FA-F958-44CA-B12E-9CE6EA040188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3747322E-14B1-485E-9086-ED78425BE72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3747322E-14B1-485E-9086-ED78425BE72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3747322E-14B1-485E-9086-ED78425BE72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3747322E-14B1-485E-9086-ED78425BE72D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D7F02B02-74D5-4A63-85AA-BC82CBEB6DA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D7F02B02-74D5-4A63-85AA-BC82CBEB6DA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7F02B02-74D5-4A63-85AA-BC82CBEB6DA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{4F6F0A82-120B-4031-ADB9-2064CE3BA1F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F6F0A82-120B-4031-ADB9-2064CE3BA1F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F6F0A82-120B-4031-ADB9-2064CE3BA1F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32B641FA-F958-44CA-B12E-9CE6EA040188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B641FA-F958-44CA-B12E-9CE6EA040188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B641FA-F958-44CA-B12E-9CE6EA040188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B641FA-F958-44CA-B12E-9CE6EA040188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
