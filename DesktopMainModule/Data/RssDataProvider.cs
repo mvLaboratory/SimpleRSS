@@ -1,20 +1,20 @@
 ﻿using EleksRssCore;
 
-namespace eleksRssGUI
+namespace DesktopMainModule
 {
     public class RssDataProvider : IDataProvider
     {
-        public RssDataProvider(BaseViewModel viewModel)
+        public RssDataProvider(RssViewModel viewModel)
         {
             _viewModel = viewModel;
         }
 
-        public void readData()
+        public RssItem readData()
         {
             //_viewModel.ObservableRssItems.Add();
-            var del = _viewModel.GetDelegate();
-            var model = new RssItem("Sensation N" + (++i), "I am", "http", new Category("first", ""));
-            del(model);
+            //var del = _viewModel.GetDelegate();
+            return new RssItem("Sensation N" + (++i), "I am", "http", new Category("first", ""));
+            //del(model);
         }
 
         private BaseViewModel _viewModel;

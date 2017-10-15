@@ -2,7 +2,7 @@
 using EleksRssCore;
 using System.Collections.ObjectModel;
 
-namespace eleksRssGUI 
+namespace DesktopMainModule
 {
     class ObservableRssItems : ObservableCollection<IModel>
     {

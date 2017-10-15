@@ -26,7 +26,7 @@
         </DataTemplate>
     </UserControl.Resources>
     <Border Padding="10">
-        <DockPanel>
+        <DockPanel x:Name="RssDockPanel">
             <StackPanel DockPanel.Dock="Top">
                 <Button HorizontalAlignment="Right" Width="100">Settings</Button>
             </StackPanel>
@@ -36,7 +36,7 @@
                 <Button Content="+"/>
             </StackPanel>
             <StackPanel x:Name="RssItemsPanel">
-                <ListBox ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" Height="{Binding ElementName=RssItemsPanel, Path=ActualHeight}"
+                <ListBox ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" Height="{Binding ElementName=RssDockPanel, Path=ActualHeight}"
                      ItemTemplate="{DynamicResource RssItemDataTemplate}">
                 </ListBox>
             </StackPanel>

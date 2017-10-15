@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace eleksRssGUI
+namespace DesktopMainModule
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

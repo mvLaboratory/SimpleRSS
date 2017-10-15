@@ -4,9 +4,10 @@ namespace DesktopMainModule
 {
     public partial class MainWindowView : UserControl
     {
-        public MainWindowView()
+        public MainWindowView(RssViewModel model)
         {
             InitializeComponent();
+            DataContext = model;
         }
     }
 }
