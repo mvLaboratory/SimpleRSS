@@ -9,13 +9,13 @@ namespace EleksRssCore
     {
 
         public RssStorage() : base(new SQLiteConnection()
-                                            {
-                                                ConnectionString = new SQLiteConnectionStringBuilder()
-                                                {
-                                                    DataSource = Environment.CurrentDirectory + "\\Storage\\RssDB.db",
-                                                    ForeignKeys = true
-                                                }.ConnectionString
-                                            }, true)
+                                {
+                                    ConnectionString = new SQLiteConnectionStringBuilder()
+                                    {
+                                        DataSource = Environment.CurrentDirectory + Properties.Settings.Default.ConnectionString,
+                                        ForeignKeys = true
+                                    }.ConnectionString
+                                }, true)
         {
             Database.SetInitializer<RssStorage>(null);
 
@@ -24,5 +24,6 @@ namespace EleksRssCore
         }
 
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<RssItem> RssItems { get; set; }
     }
 }

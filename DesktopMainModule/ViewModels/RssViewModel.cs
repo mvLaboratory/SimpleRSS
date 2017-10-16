@@ -2,6 +2,8 @@
 using EleksRssCore;
 using System.Threading.Tasks;
 using Prism.Events;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace DesktopMainModule
 {
@@ -26,14 +28,15 @@ namespace DesktopMainModule
             //updateItems();
         }
 
-        public bool RssItemsListEventFilter(RssItem item)
+        public bool RssItemsListEventFilter(List<RssItem> items)
         {
             return true;
         }
 
-        public void RssItemsListChangedHandler(RssItem item)
+        public void RssItemsListChangedHandler(List<RssItem> items)
         {
-            ObservableRssItems.Add(item);
+            ObservableRssItems.Clear();
+            ObservableRssItems.AddRange(items);
         }
 
         public override TestDelegate GetDelegate()

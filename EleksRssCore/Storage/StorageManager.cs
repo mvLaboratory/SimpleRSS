@@ -1,28 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EleksRssCore
 {
     public class StorageManager
     {
         public RssStorage Storage { get; private set; }
-        //ToDo manage instance
+        //TODO:: manage instance
         public StorageManager()
         {
             Storage = new RssStorage();
-
-            //Category defaultCategory = new Category("default", "UI1");
-            //Storage.Categories.Add(defaultCategory);
-            //Storage.SaveChanges();
         }
 
-        public void readModels()
+        //public void readModels()
+        //{
+        //    Storage.Categories.ToList();
+        //}
+
+        public List<RssItem> readRssItems()
         {
-            Type categoriesType = typeof(Category);
-            Storage.Categories.ToList();
+            return Storage.RssItems.ToList();
         }
     }
 }

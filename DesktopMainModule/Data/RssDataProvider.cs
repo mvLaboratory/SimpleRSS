@@ -1,23 +1,23 @@
 ﻿using EleksRssCore;
+using System.Collections.Generic;
 
 namespace DesktopMainModule
 {
     public class RssDataProvider : IDataProvider
     {
-        public RssDataProvider(RssViewModel viewModel)
+        public RssDataProvider(RssViewModel viewModel, StorageManager storageManager)
         {
             _viewModel = viewModel;
+            _storageManager = storageManager;
         }
 
-        public RssItem readData()
+        public List<RssItem> readRssItems()
         {
-            //_viewModel.ObservableRssItems.Add();
-            //var del = _viewModel.GetDelegate();
-            return new RssItem("Sensation N" + (++i), "I am", "http", new Category("first", ""));
-            //del(model);
+            return _storageManager.readRssItems();
         }
 
         private BaseViewModel _viewModel;
+        private StorageManager _storageManager;
         private static int i = 0;
     }
 }

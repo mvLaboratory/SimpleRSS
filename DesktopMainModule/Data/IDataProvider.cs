@@ -1,11 +1,10 @@
-﻿
-
-using EleksRssCore;
+﻿using EleksRssCore;
+using System.Collections.Generic;
 
 namespace DesktopMainModule
 {
     public interface IDataProvider
     {
-        RssItem readData();
+        List<RssItem> readRssItems();
     }
 }
