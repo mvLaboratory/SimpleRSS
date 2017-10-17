@@ -13,14 +13,15 @@ namespace EleksRssCore
             Storage = new RssStorage();
         }
 
-        //public void readModels()
-        //{
-        //    Storage.Categories.ToList();
-        //}
-
         public List<RssItem> readRssItems()
         {
             return Storage.RssItems.ToList();
+        }
+
+        public void SaveRssItem(RssItem item)
+        {
+            Storage.RssItems.Add(item);
+            Storage.SaveChangesAsync();
         }
     }
 }

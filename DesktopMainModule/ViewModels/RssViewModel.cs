@@ -9,10 +9,13 @@ namespace DesktopMainModule
 {
     public class RssViewModel : BaseViewModel
     {
-        public RssViewModel(IEventAggregator eventAggregator)
+        public ObservableCategories ObservableCategories { get; set; }
+        public ObservableRssItems ObservableRssItems { get; set; }
+
+        public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, ObservableCategories categotiesList)
         {
-            ObservableCategories = new ObservableCategories();
-            ObservableRssItems = new ObservableRssItems();
+            ObservableCategories = categotiesList;
+            ObservableRssItems = rssItemsList;
 
             _eventAggregator = eventAggregator;
             RssItemsListChangedEvent rssItemsListChangedEvent = eventAggregator.GetEvent<RssItemsListChangedEvent>();
@@ -20,42 +23,7 @@ namespace DesktopMainModule
             {
                 rssItemsListChangedEvent.Unsubscribe(_subscriptionToken);
             }
-            _subscriptionToken = rssItemsListChangedEvent.Subscribe(RssItemsListChangedHandler, ThreadOption.UIThread, false, RssItemsListEventFilter);
-
-
-
-            //new StorageManager();
-            //updateItems();
-        }
-
-        public bool RssItemsListEventFilter(List<RssItem> items)
-        {
-            return true;
-        }
-
-        public void RssItemsListChangedHandler(List<RssItem> items)
-        {
-            ObservableRssItems.Clear();
-            ObservableRssItems.AddRange(items);
-        }
-
-        public override TestDelegate GetDelegate()
-        {
-            return new TestDelegate(test);
-        }
-
-        async Task updateItems()
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                await Task.Delay(1000);
-                ObservableRssItems.Add(new RssItem("Sensation N" + i, "I am", "http", new Category("first", "")));
-            }
-        }
-
-        public void test(IModel model)
-        {
-            //ObservableRssItems.Add(model);
+            _subscriptionToken = rssItemsListChangedEvent.Subscribe(ObservableRssItems.RssItemsListChangedHandler, ThreadOption.UIThread, false, ObservableRssItems.RssItemsListEventFilter);
         }
 
         private IEventAggregator _eventAggregator;

@@ -20,8 +20,8 @@ namespace DesktopMainModule
         {
             while (true)
             {
-                var newItem = _dataProvider.readRssItems();
-                _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(newItem);
+                var itemsList = _dataProvider.readRssItems();
+                _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
                 await Task.Delay(2000);
             }
         }

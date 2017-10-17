@@ -1,4 +1,6 @@
-﻿using Prism.Modularity;
+﻿using DesktopMainModule;
+using Microsoft.Practices.Unity;
+using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
 

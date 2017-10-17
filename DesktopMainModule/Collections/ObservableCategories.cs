@@ -4,7 +4,7 @@ using EleksRssCore;
 
 namespace DesktopMainModule
 {
-    class ObservableCategories : ObservableCollection<IModel>
+    public class ObservableCategories : ObservableCollection<Category>
     {
         public ObservableCategories()
         {

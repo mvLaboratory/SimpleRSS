@@ -1,17 +1,25 @@
-﻿using System;
-using EleksRssCore;
+﻿using EleksRssCore;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 
 namespace DesktopMainModule
 {
-    class ObservableRssItems : ObservableCollection<IModel>
+    public class ObservableRssItems : ObservableCollection<RssItem>
     {
         public ObservableRssItems()
         {
-            Add(new RssItem("Sensation1", "I am", "http", new Category("first", "")));
-            Add(new RssItem("Sensation2", "I am", "http", new Category("first", "")));
-            Add(new RssItem("Sensation3", "I am", "http", new Category("first", "")));
-            Add(new RssItem("Sensation4", "I am", "http", new Category("first", "")));
         }
+
+        public void RssItemsListChangedHandler(List<RssItem> items)
+        {
+            this.Clear();
+            this.AddRange(items);
+        }
+
+        public bool RssItemsListEventFilter(List<RssItem> items)
+        {
+            return true;
+        }
+
     }
 }
