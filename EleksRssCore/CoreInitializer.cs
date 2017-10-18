@@ -1,8 +1,4 @@
 ﻿using EleksRssCore.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EleksRssCore
@@ -24,7 +20,7 @@ namespace EleksRssCore
             while (true)
             {
                 RssDataReader.Read(_storageManager);
-                await Task.Delay(2000);
+                await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }
 

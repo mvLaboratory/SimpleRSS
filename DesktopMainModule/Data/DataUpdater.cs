@@ -1,11 +1,12 @@
 ﻿using Prism.Events;
 using System.Threading.Tasks;
+using EleksRssCore;
 
 namespace DesktopMainModule
 {
     public class DataUpdater
     {
-        public DataUpdater(IEventAggregator eventAggregator, RssDataProvider dataProvider)
+        public DataUpdater(IEventAggregator eventAggregator, IDataProvider dataProvider)
         {
             _eventAggregator = eventAggregator;
             _dataProvider = dataProvider;
@@ -22,7 +23,7 @@ namespace DesktopMainModule
             {
                 var itemsList = _dataProvider.readRssItems();
                 _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
-                await Task.Delay(2000);
+                await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }
 

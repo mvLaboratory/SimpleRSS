@@ -77,6 +77,7 @@
     <Compile Include="Storage\Seeding.cs" />
     <Compile Include="Storage\SQLiteConfiguration .cs" />
     <Compile Include="Storage\StorageManager.cs" />
+    <Compile Include="Utils\ConfigurationProvider.cs" />
     <Compile Include="Utils\RssDataReader.cs" />
   </ItemGroup>
   <ItemGroup>

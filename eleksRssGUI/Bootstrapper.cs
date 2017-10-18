@@ -16,6 +16,7 @@ namespace eleksRssGUI
         protected override void InitializeShell()
         {
             base.InitializeShell();
+            Container.RegisterType<IDataProvider, RssDataProvider>();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
@@ -27,6 +28,7 @@ namespace eleksRssGUI
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
             var module = typeof(DesktopMainModule.DesktopMainModule);
             moduleCatalog.AddModule(module);
+
         }
     }
 }

@@ -11,17 +11,33 @@ namespace EleksRssCore
         public StorageManager()
         {
             Storage = new RssStorage();
+            if (Storage.RssItems.Any())
+            {
+                lastLoadedDate = Storage.RssItems.Max(item => item.PublicationdDate);
+            }
         }
 
         public List<RssItem> readRssItems()
         {
-            return Storage.RssItems.ToList();
+            var newItems = Storage.RssItems.Take(20).OrderByDescending(item => item.PublicationdDate).ToList();
+            if (newItems.Any())
+            {
+                lastReadedDate = newItems.Max(item => item.PublicationdDate);
+            }
+            return newItems;
         }
 
         public void SaveRssItem(RssItem item)
         {
+            if (item.PublicationdDate <= lastLoadedDate)
+                return;
+
             Storage.RssItems.Add(item);
             Storage.SaveChangesAsync();
+            lastLoadedDate = item.PublicationdDate;
         }
+
+        private static DateTime lastReadedDate;
+        private static DateTime lastLoadedDate;
     }
 }

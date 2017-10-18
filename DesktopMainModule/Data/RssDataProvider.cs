@@ -17,7 +17,6 @@ namespace DesktopMainModule
         }
 
         private BaseViewModel _viewModel;
-        private StorageManager _storageManager;
-        private static int i = 0;
+        private StorageManager _storageManager; 
     }
 }

@@ -12,7 +12,7 @@ namespace DesktopMainModule
 
         public void RssItemsListChangedHandler(List<RssItem> items)
         {
-            this.Clear();
+            Clear();
             this.AddRange(items);
         }
 

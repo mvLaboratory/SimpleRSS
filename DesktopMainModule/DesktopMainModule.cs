@@ -15,7 +15,6 @@ namespace DesktopMainModule
 
         public void Initialize()
         {
-            _container.RegisterType<IDataProvider, RssDataProvider>();
             _regionManager.RegisterViewWithRegion("MainRegion", typeof(MainWindowView));
             _updater.Start();
         }

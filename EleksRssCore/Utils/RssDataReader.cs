@@ -21,8 +21,7 @@ namespace EleksRssCore.Utils
             {
                 return;
             }
-
-            workFeed.Items.ToList().ForEach(item => storageManager.SaveRssItem(new RssItem(item.PublishDate.Date, item.Title.Text, "", item.Id, null)));
+            workFeed.Items.OrderBy(item => item.PublishDate.DateTime).ToList().ForEach(item => storageManager.SaveRssItem(new RssItem(item.PublishDate.DateTime, item.Title.Text, "", item.Id, null)));
         }
     }
 }
