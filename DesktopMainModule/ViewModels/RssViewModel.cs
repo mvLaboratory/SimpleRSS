@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Prism.Events;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using System.Windows;
 
 namespace DesktopMainModule
 {
@@ -11,6 +13,16 @@ namespace DesktopMainModule
     {
         public ObservableCategories ObservableCategories { get; set; }
         public ObservableRssItems ObservableRssItems { get; set; }
+        public ICommand RssItemDbCkick {
+            get {
+                if (_rssLinkClick == null)
+                {
+                    _rssLinkClick = new RelayCommand(openBrowser);
+                }
+
+                return _rssLinkClick;
+            }
+        }
 
         public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, ObservableCategories categotiesList)
         {
@@ -26,7 +38,13 @@ namespace DesktopMainModule
             _subscriptionToken = rssItemsListChangedEvent.Subscribe(ObservableRssItems.RssItemsListChangedHandler, ThreadOption.UIThread, false, ObservableRssItems.RssItemsListEventFilter);
         }
 
+        private void openBrowser(object url)
+        {
+            MessageBox.Show("Do you want to close t");
+        }
+
         private IEventAggregator _eventAggregator;
         private SubscriptionToken _subscriptionToken;
+        private ICommand _rssLinkClick;
     }
 }

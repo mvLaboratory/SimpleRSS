@@ -84,6 +84,7 @@
     <Compile Include="Events\RssItemsListChangedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\IViewModelFactory.cs" />
     <Compile Include="ViewModels\RssViewModel.cs" />
     <Compile Include="ViewModels\ViewModelFactory.cs" />

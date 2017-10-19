@@ -20,7 +20,9 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="0, 0, 10, 0" Text="{Binding Path=PublicationdDate, FallbackValue=[Empty Date]}"/>
                     <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}"/>
-                    <TextBlock Grid.Column="2" Margin="0, 0, 10, 0" Text="{Binding Path=Url, FallbackValue=[Empty URL]}"/>
+                    <Button Grid.Column="2" Margin="0, 0, 10, 0" Command="{Binding RssItemDbCkick}" CommandParameter="" Content="{Binding Path=Url, FallbackValue=[Empty URL]}">
+                    </Button>
+                    
                 </Grid>
             </StackPanel>
         </DataTemplate>
@@ -28,7 +30,7 @@
     <Border Padding="10">
         <DockPanel x:Name="RssDockPanel">
             <StackPanel DockPanel.Dock="Top">
-                <Button HorizontalAlignment="Right" Width="100">Settings</Button>
+                <Button HorizontalAlignment="Right" Width="100" Command="{Binding RssItemDbCkick}" CommandParameter="">Settings</Button>
             </StackPanel>
             <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
                 <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
@@ -37,7 +39,7 @@
             </StackPanel>
             <StackPanel x:Name="RssItemsPanel">
                 <ListBox ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" Height="{Binding ElementName=RssDockPanel, Path=ActualHeight}"
-                     ItemTemplate="{DynamicResource RssItemDataTemplate}">
+                    ItemTemplate="{DynamicResource RssItemDataTemplate}">
                 </ListBox>
             </StackPanel>
         </DockPanel>
