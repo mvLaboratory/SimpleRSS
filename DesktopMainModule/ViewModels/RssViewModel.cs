@@ -13,7 +13,7 @@ namespace DesktopMainModule
     {
         public ObservableCategories ObservableCategories { get; set; }
         public ObservableRssItems ObservableRssItems { get; set; }
-        public ICommand RssItemDbCkick {
+        public ICommand RssItemCkick {
             get {
                 if (_rssLinkClick == null)
                 {
