@@ -16,6 +16,7 @@ namespace eleksRssGUI
         protected override void InitializeShell()
         {
             base.InitializeShell();
+            Container.RegisterType<BaseViewModel, RssViewModel>();
             Container.RegisterType<IDataProvider, RssDataProvider>();
 
             Application.Current.MainWindow = (Window)this.Shell;

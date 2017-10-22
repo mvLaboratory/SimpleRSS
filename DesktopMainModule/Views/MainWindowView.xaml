@@ -10,7 +10,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="RssItemDataTemplate">
-            <StackPanel>
+            <StackPanel MouseDown="RssItemDoubleClickHandler" Tag="{Binding Path=Url, FallbackValue=[Empty URL]}">
                 <TextBlock Text="{Binding Path=Title, FallbackValue=[Empty]}"/>
                 <Grid Margin="5, 0, 8, 5">
                     <Grid.ColumnDefinitions>
@@ -19,16 +19,15 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding RssItemCkick}" CommandParameter=""/>
+                    </Grid.InputBindings>
                     <TextBlock Grid.Column="0" Margin="0, 0, 10, 0" Text="{Binding Path=PublicationdDate, FallbackValue=[Empty Date]}"/>
                     <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}"/>
 
                     <TextBlock Grid.Column="2" Margin="0, 0, 10, 0">
-                        <Hyperlink  Command="{Binding RssItemCkick, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="">AA</Hyperlink>
+                        <Hyperlink Command="{Binding RssItemCkick, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="">Link</Hyperlink>
                     </TextBlock>
-
-                    <Button Grid.Column="3" Margin="0, 0, 10, 0" Command="{Binding RssItemCkick, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="" Content="{Binding Path=Url, FallbackValue=[Empty URL]}"></Button>
-
-
                 </Grid>
             </StackPanel>
         </DataTemplate>
