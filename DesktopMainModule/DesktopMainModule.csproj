@@ -95,6 +95,10 @@
       <Project>{4f6f0a82-120b-4031-adb9-2064ce3ba1f5}</Project>
       <Name>EleksRssCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UrlBrowserModule\UrlBrowserModule.csproj">
+      <Project>{32e9ef39-ec9d-4c74-bfbc-5a9adadf8624}</Project>
+      <Name>UrlBrowserModule</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MainWindowView.xaml">

@@ -27,8 +27,11 @@ namespace eleksRssGUI
         {
             base.ConfigureModuleCatalog();
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
-            var module = typeof(DesktopMainModule.DesktopMainModule);
-            moduleCatalog.AddModule(module);
+            var newsModule = typeof(DesktopMainModule.DesktopMainModule);
+            var urlBrowserModule = typeof(UrlBrowserModule.UrlBrowserModule);
+
+            //moduleCatalog.AddModule(urlBrowserModule);
+            moduleCatalog.AddModule(newsModule);
 
         }
     }

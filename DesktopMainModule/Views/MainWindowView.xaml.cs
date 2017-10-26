@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Prism.Regions;
+using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -25,6 +27,14 @@ namespace DesktopMainModule
                 {
                     command.Execute(senderPanel.Tag);
                 }
+            }
+        }
+
+        void CheckForError(NavigationResult nr)
+        {
+            if (nr.Result == false)
+            {
+                throw new Exception(nr.Error.Message);
             }
         }
 

@@ -19,7 +19,7 @@ namespace EleksRssCore
 
         public List<RssItem> readRssItems()
         {
-            var newItems = Storage.RssItems.Take(20).OrderByDescending(item => item.PublicationdDate).ToList();
+            var newItems = Storage.RssItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => item.PublicationdDate);

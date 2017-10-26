@@ -10,7 +10,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="RssItemDataTemplate">
-            <StackPanel MouseDown="RssItemDoubleClickHandler" Tag="{Binding Path=Url, FallbackValue=[Empty URL]}">
+            <StackPanel MouseDown="ListItemDoubleClickHandler" Tag="{Binding Path=Url, FallbackValue=[Empty URL]}">
                 <TextBlock Text="{Binding Path=Title, FallbackValue=[Empty]}"/>
                 <Grid Margin="5, 0, 8, 5">
                     <Grid.ColumnDefinitions>
@@ -19,14 +19,11 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid.InputBindings>
-                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding RssItemCkick}" CommandParameter=""/>
-                    </Grid.InputBindings>
                     <TextBlock Grid.Column="0" Margin="0, 0, 10, 0" Text="{Binding Path=PublicationdDate, FallbackValue=[Empty Date]}"/>
                     <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}"/>
 
                     <TextBlock Grid.Column="2" Margin="0, 0, 10, 0">
-                        <Hyperlink Command="{Binding RssItemCkick, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="">Link</Hyperlink>
+                        <Hyperlink>Link</Hyperlink>
                     </TextBlock>
                 </Grid>
             </StackPanel>
@@ -35,7 +32,7 @@
     <Border Padding="10">
         <DockPanel x:Name="RssDockPanel">
             <StackPanel DockPanel.Dock="Top">
-                <Button HorizontalAlignment="Right" Width="100" Command="{Binding RssItemCkick}" CommandParameter="">Settings</Button>
+                <Button HorizontalAlignment="Right" Width="100">Settings</Button>
             </StackPanel>
             <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
                 <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
