@@ -14,6 +14,8 @@ namespace DesktopMainModule
     {
         public ObservableCategories ObservableCategories { get; private set; }
         public ObservableRssItems ObservableRssItems { get; private set; }
+        public int SelectedTabIndex {  get; set; }
+        public String NewsURL { get; set; }
         public ICommand RssItemDbClick
         {
             get {
@@ -37,6 +39,8 @@ namespace DesktopMainModule
 
             _regionManager = regionManager;
             _container = container;
+
+            SelectedTabIndex = 0;
         }
 
         public override ICommand GetCommand(String commandName)
@@ -49,14 +53,16 @@ namespace DesktopMainModule
 
         private void openBrowser(object url)
         {
-            IRegion mainRegion = _regionManager.Regions["MainRegion"];          
-            UrlBrowserView view = _container.Resolve<UrlBrowserView>();
-            mainRegion.Add(view);
+            //IRegion mainRegion = _regionManager.Regions["MainRegion"];          
+            //UrlBrowserView view = _container.Resolve<UrlBrowserView>();
+            //mainRegion.Add(view);
 
             //mainRegion.RequestNavigate(new Uri("/UrlBrowserModule;component/Views/UrlBrowserView", UriKind.Relative), CheckForError);
 
-            var viewUrl = new Uri("UrlBrowserView", UriKind.Relative);
-            _regionManager.RequestNavigate("MainRegion", viewUrl, CheckForError);
+            //var viewUrl = new Uri("UrlBrowserView", UriKind.Relative);
+            //_regionManager.RequestNavigate("MainRegion", viewUrl, CheckForError);
+            NewsURL = url.ToString();
+            SelectedTabIndex = 1;
         }
 
         void CheckForError(NavigationResult nr)
