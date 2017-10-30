@@ -25,10 +25,18 @@ namespace DesktopMainModule
 
         public static void UrlPropertyChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            WebBrowser webBrowser = dependencyObject as WebBrowser;
-            if (webBrowser != null && GetUrl(webBrowser) != null && GetUrl(webBrowser) != string.Empty)
+            WebBrowser webBrowser = dependencyObject as WebBrowser;           
+            if (webBrowser != null)
             {
-                webBrowser.Navigate(GetUrl(webBrowser));
+                String browserUrl = GetUrl(webBrowser);
+                if (browserUrl != null && browserUrl != string.Empty)
+                {
+                    webBrowser.Navigate(browserUrl);    
+                }
+                else
+                {
+                    webBrowser.NavigateToString("<Html></Html>");
+                }
                 webBrowser.LoadCompleted += WebBrowserLoaded;
             }
         }

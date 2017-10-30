@@ -10,7 +10,7 @@ using UrlBrowserModule;
 
 namespace DesktopMainModule
 {
-    public class RssViewModel : BaseViewModel, INavigationAware
+    public class RssViewModel : BaseViewModel
     {
         public ObservableCategories ObservableCategories { get; private set; }
         public ObservableRssItems ObservableRssItems { get; private set; }
@@ -27,6 +27,7 @@ namespace DesktopMainModule
                 return _rssItemDbClick;
             }
         }
+        public ICommand BackToNewsCommand { get; set; }
 
         public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, ObservableCategories categotiesList, IRegionManager regionManager, IUnityContainer container)
         {
@@ -39,6 +40,8 @@ namespace DesktopMainModule
 
             _regionManager = regionManager;
             _container = container;
+
+            BackToNewsCommand = new RelayCommand(backToNews);
 
             SelectedTabIndex = 0;
         }
@@ -53,36 +56,15 @@ namespace DesktopMainModule
 
         private void openBrowser(object url)
         {
-            //IRegion mainRegion = _regionManager.Regions["MainRegion"];          
-            //UrlBrowserView view = _container.Resolve<UrlBrowserView>();
-            //mainRegion.Add(view);
-
-            //mainRegion.RequestNavigate(new Uri("/UrlBrowserModule;component/Views/UrlBrowserView", UriKind.Relative), CheckForError);
-
-            //var viewUrl = new Uri("UrlBrowserView", UriKind.Relative);
-            //_regionManager.RequestNavigate("MainRegion", viewUrl, CheckForError);
             NewsURL = url.ToString();
             SelectedTabIndex = 1;
         }
 
-        void CheckForError(NavigationResult nr)
+        private void backToNews(object @params)
         {
-            if (nr.Result == false)
-            {
-                throw new Exception(nr.Error.Message);
-            }
+            NewsURL = "";
+            SelectedTabIndex = 0;
         }
-
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        { }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        { }
 
         private SubscriptionToken _subscriptionToken;
         private IEventAggregator _eventAggregator;      

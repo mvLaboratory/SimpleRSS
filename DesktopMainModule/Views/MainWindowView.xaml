@@ -57,9 +57,12 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="">
-                <WebBrowser Height="900px" x:Name="NewsBrowser" src:WebBrowserProperties.Url="{Binding NewsURL}">
-                    
-                </WebBrowser>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Back" Command="{Binding BackToNewsCommand}"></Button>
+                    </StackPanel>
+                    <WebBrowser Height="900px" x:Name="NewsBrowser" src:WebBrowserProperties.Url="{Binding NewsURL}" />
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Border>
