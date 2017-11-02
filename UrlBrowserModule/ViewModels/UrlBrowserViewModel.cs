@@ -5,25 +5,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using GuiEnvironment;
 
 namespace UrlBrowserModule
 {
-    public class UrlBrowserViewModel : BaseViewModel, INavigationAware
+    public class UrlBrowserViewModel : BaseViewModel
     {
+        public ICommand BackToNewsCommand { get; set; }
+        public String NewsURL { get; set; }
+
+        public UrlBrowserViewModel()
+        {
+            BackToNewsCommand = new RelayCommand(backToNews);
+        }
+
         public override ICommand GetCommand(String commandName)
         {
             return null;
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
+
+
+
+        private void backToNews(object @params)
         {
-            return true;
+            NewsURL = "";
+            //SelectedTabIndex = 0;
         }
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        { }
-
-        public void OnNavigatedTo(NavigationContext navigationContext)
-        { }
     }
 }

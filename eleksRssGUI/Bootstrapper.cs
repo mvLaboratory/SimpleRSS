@@ -1,4 +1,5 @@
-﻿using DesktopMainModule;
+﻿
+using DesktopMainModule;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;
@@ -30,9 +31,8 @@ namespace eleksRssGUI
             var newsModule = typeof(DesktopMainModule.DesktopMainModule);
             var urlBrowserModule = typeof(UrlBrowserModule.UrlBrowserModule);
 
-            //moduleCatalog.AddModule(urlBrowserModule);
             moduleCatalog.AddModule(newsModule);
-
+            moduleCatalog.AddModule(urlBrowserModule);
         }
     }
 }

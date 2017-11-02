@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace DesktopMainModule
+namespace GuiEnvironment
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         public event EventHandler CanExecuteChanged = (sender, e) => { };
 

@@ -7,6 +7,7 @@ using System.Linq;
 using Prism.Regions;
 using Microsoft.Practices.Unity;
 using UrlBrowserModule;
+using GuiEnvironment;
 
 namespace DesktopMainModule
 {
@@ -15,7 +16,6 @@ namespace DesktopMainModule
         public ObservableCategories ObservableCategories { get; private set; }
         public ObservableRssItems ObservableRssItems { get; private set; }
         public int SelectedTabIndex {  get; set; }
-        public String NewsURL { get; set; }
         public ICommand RssItemDbClick
         {
             get {
@@ -27,7 +27,7 @@ namespace DesktopMainModule
                 return _rssItemDbClick;
             }
         }
-        public ICommand BackToNewsCommand { get; set; }
+
 
         public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, ObservableCategories categotiesList, IRegionManager regionManager, IUnityContainer container)
         {
@@ -41,7 +41,7 @@ namespace DesktopMainModule
             _regionManager = regionManager;
             _container = container;
 
-            BackToNewsCommand = new RelayCommand(backToNews);
+
 
             SelectedTabIndex = 0;
         }
@@ -54,16 +54,11 @@ namespace DesktopMainModule
             return commandDictionary.FirstOrDefault(item => item.Key.Equals(commandName)).Value;
         }
 
+
         private void openBrowser(object url)
         {
-            NewsURL = url.ToString();
+            //NewsURL = url.ToString();
             SelectedTabIndex = 1;
-        }
-
-        private void backToNews(object @params)
-        {
-            NewsURL = "";
-            SelectedTabIndex = 0;
         }
 
         private SubscriptionToken _subscriptionToken;

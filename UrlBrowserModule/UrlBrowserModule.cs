@@ -15,7 +15,7 @@ namespace UrlBrowserModule
 
         public void Initialize()
         {
-            _regionManager.RegisterViewWithRegion("MainRegion", typeof(UrlBrowserView));
+            _regionManager.RegisterViewWithRegion("UrlBrowserRegion", typeof(UrlBrowserView));
         }
 
         private readonly IRegionManager _regionManager;
