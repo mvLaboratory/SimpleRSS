@@ -81,9 +81,7 @@
     <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="DesktopMainModule.cs" />
-    <Compile Include="Events\RssItemsListChangedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\RssViewModel.cs" />
     <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>

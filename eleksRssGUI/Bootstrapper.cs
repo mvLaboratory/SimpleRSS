@@ -1,5 +1,6 @@
 ﻿
 using DesktopMainModule;
+using GuiEnvironment;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Unity;

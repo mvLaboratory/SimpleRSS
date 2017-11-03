@@ -1,4 +1,5 @@
 ﻿using EleksRssCore;
+using GuiEnvironment;
 using System.Collections.Generic;
 
 namespace DesktopMainModule

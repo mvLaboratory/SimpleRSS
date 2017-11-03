@@ -1,6 +1,7 @@
 ﻿using Prism.Events;
 using System.Threading.Tasks;
 using EleksRssCore;
+using GuiEnvironment;
 
 namespace DesktopMainModule
 {

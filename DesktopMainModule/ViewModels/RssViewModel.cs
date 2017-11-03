@@ -38,10 +38,11 @@ namespace DesktopMainModule
             RssItemsListChangedEvent rssItemsListChangedEvent = eventAggregator.GetEvent<RssItemsListChangedEvent>();
             _subscriptionToken = rssItemsListChangedEvent.Subscribe(ObservableRssItems.RssItemsListChangedHandler, ThreadOption.UIThread, false, ObservableRssItems.RssItemsListEventFilter);
 
+            BackToNewsEvent backToNewsEvent = eventAggregator.GetEvent<BackToNewsEvent>();
+            _subscriptionToken = backToNewsEvent.Subscribe(openNewsTabEventHandler, ThreadOption.UIThread, false, openNewsTabEventFilter);
+
             _regionManager = regionManager;
             _container = container;
-
-
 
             SelectedTabIndex = 0;
         }
@@ -53,12 +54,22 @@ namespace DesktopMainModule
 
             return commandDictionary.FirstOrDefault(item => item.Key.Equals(commandName)).Value;
         }
-
-
+        
         private void openBrowser(object url)
         {
             //NewsURL = url.ToString();
+            _eventAggregator.GetEvent<UrlChangedEvent>().Publish(url.ToString());
             SelectedTabIndex = 1;
+        }
+
+        private void openNewsTabEventHandler(object prop)
+        {
+            SelectedTabIndex = 0;
+        }
+
+        public bool openNewsTabEventFilter(object prop)
+        {
+            return true;
         }
 
         private SubscriptionToken _subscriptionToken;
