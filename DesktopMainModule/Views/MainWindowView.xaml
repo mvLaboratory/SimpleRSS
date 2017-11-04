@@ -5,13 +5,6 @@
                 Width="Auto">
     
     <UserControl.Resources>
-        <DataTemplate x:Key="RssCategoryDataTemplate">
-            <StackPanel>
-                <TextBlock Text="{Binding Path=Name, FallbackValue=[Empty]}"/>
-                <TextBlock Text="{Binding Path=RssURL, FallbackValue=[Empty]}"/>
-            </StackPanel>
-        </DataTemplate>
-
         <DataTemplate x:Key="RssItemDataTemplate">
             <StackPanel MouseDown="ListItemDoubleClickHandler" Tag="{Binding Path=Url, FallbackValue=[Empty URL]}">
                 <TextBlock Text="{Binding Path=Title, FallbackValue=[Empty]}"/>
@@ -46,9 +39,7 @@
                             <Button HorizontalAlignment="Right" Width="100">Settings</Button>
                         </StackPanel>
                         <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
-                            <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
-                     ItemTemplate="{DynamicResource RssCategoryDataTemplate}"/>
-                            <Button Content="+"/>
+                            <ItemsControl Name="CategotiesViewRegion" prism:RegionManager.RegionName="CategotiesViewRegion"/>    
                         </StackPanel>
                         <StackPanel x:Name="RssItemsPanel">
                             <ListBox ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" Height="{Binding ElementName=RssDockPanel, Path=ActualHeight}"

@@ -1,12 +1,10 @@
 ﻿using System;
 using Prism.Events;
 using System.Windows.Input;
-using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using Prism.Regions;
 using Microsoft.Practices.Unity;
-using UrlBrowserModule;
 using GuiEnvironment;
 
 namespace DesktopMainModule
@@ -57,7 +55,6 @@ namespace DesktopMainModule
         
         private void openBrowser(object url)
         {
-            //NewsURL = url.ToString();
             _eventAggregator.GetEvent<UrlChangedEvent>().Publish(url.ToString());
             SelectedTabIndex = 1;
         }
