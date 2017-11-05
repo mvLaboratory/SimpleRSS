@@ -27,6 +27,11 @@ namespace EleksRssCore
             return newItems;
         }
 
+        public List<Category> readRssCategoriesItems()
+        {
+            return Storage.Categories.ToList();
+        }
+
         public void SaveRssItem(RssItem item)
         {
             if (item.PublicationdDate <= lastLoadedDate)

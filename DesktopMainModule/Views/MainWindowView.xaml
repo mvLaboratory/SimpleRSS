@@ -52,6 +52,9 @@
             <TabItem Header="">
                 <ItemsControl Name="UrlBrowserRegion" prism:RegionManager.RegionName="UrlBrowserRegion"/>
             </TabItem>
+            <TabItem Header="">
+                <ItemsControl Name="NewCategoryRegion" prism:RegionManager.RegionName="NewCategoryRegion"/>
+            </TabItem>
         </TabControl>
     </Border>
 </UserControl>

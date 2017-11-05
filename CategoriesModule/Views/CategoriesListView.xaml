@@ -15,6 +15,6 @@
     <StackPanel>
         <ListBox ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
             ItemTemplate="{DynamicResource RssCategoryDataTemplate}"/>
-        <Button Content="+"/>
+        <Button Content="+" Command="{Binding OpenNewCategoryTabCommand}"/>
     </StackPanel>
 </UserControl>

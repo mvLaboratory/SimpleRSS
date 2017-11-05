@@ -41,7 +41,7 @@ namespace UrlBrowserModule
         private void backToNews(object @params)
         {
             NewsURL = "";
-            _eventAggregator.GetEvent<BackToNewsEvent>().Publish(0);
+            _eventAggregator.GetEvent<ChangeTabEvent>().Publish(0);
         }
 
         private IEventAggregator _eventAggregator;

@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="CategoriesModule.NewCategoryView"
+             xmlns:prism="http://www.codeplex.com/prism"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="Auto">
+    <StackPanel>
+        <TextBlock>New Category</TextBlock>
+        <Button Content="Save" Command="{Binding SaveCategoryCommand}"/>
+    </StackPanel>
+</UserControl>

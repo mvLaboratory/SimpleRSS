@@ -16,7 +16,11 @@ namespace GuiEnvironment
             return _storageManager.readRssItems();
         }
 
-        private BaseViewModel _viewModel;
+        public List<Category> readRssCategories()
+        {
+            return _storageManager.readRssCategoriesItems();
+        }
+
         private StorageManager _storageManager; 
     }
 }

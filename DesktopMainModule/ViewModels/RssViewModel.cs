@@ -34,8 +34,8 @@ namespace DesktopMainModule
             RssItemsListChangedEvent rssItemsListChangedEvent = eventAggregator.GetEvent<RssItemsListChangedEvent>();
             _subscriptionToken = rssItemsListChangedEvent.Subscribe(ObservableRssItems.RssItemsListChangedHandler, ThreadOption.UIThread, false, ObservableRssItems.RssItemsListEventFilter);
 
-            BackToNewsEvent backToNewsEvent = eventAggregator.GetEvent<BackToNewsEvent>();
-            _subscriptionToken = backToNewsEvent.Subscribe(openNewsTabEventHandler, ThreadOption.UIThread, false, openNewsTabEventFilter);
+            ChangeTabEvent backToNewsEvent = eventAggregator.GetEvent<ChangeTabEvent>();
+            _subscriptionToken = backToNewsEvent.Subscribe(changeTabEventHandler, ThreadOption.UIThread, false, changeTabEventFilter);
 
             _regionManager = regionManager;
             _container = container;
@@ -57,12 +57,16 @@ namespace DesktopMainModule
             SelectedTabIndex = 1;
         }
 
-        private void openNewsTabEventHandler(object prop)
+        private void changeTabEventHandler(object prop)
         {
-            SelectedTabIndex = 0;
+            if (!(prop is Int32))
+            {
+                throw new ArgumentException("Open tab property");
+            }
+            SelectedTabIndex = (Int32)prop;
         }
 
-        public bool openNewsTabEventFilter(object prop)
+        public bool changeTabEventFilter(object prop)
         {
             return true;
         }

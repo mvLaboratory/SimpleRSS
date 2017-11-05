@@ -14,9 +14,9 @@ namespace CategoriesModule
         public void Initialize()
         {
             _regionManager.RegisterViewWithRegion("CategotiesViewRegion", typeof(CategoriesListView));
+            _regionManager.RegisterViewWithRegion("NewCategoryRegion", typeof(NewCategoryView));
         }
 
         private readonly IRegionManager _regionManager;
-
     }
 }

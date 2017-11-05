@@ -79,8 +79,12 @@
     <Compile Include="Collections\ObservableCategories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CategoriesListVewModel.cs" />
+    <Compile Include="ViewModels\NewCategoryViewModule.cs" />
     <Compile Include="Views\CategoriesListView.xaml.cs">
       <DependentUpon>CategoriesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewCategoryView.xaml.cs">
+      <DependentUpon>NewCategoryView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\CategoriesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewCategoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

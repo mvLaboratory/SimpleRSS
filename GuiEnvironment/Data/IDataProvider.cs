@@ -6,5 +6,6 @@ namespace GuiEnvironment
     public interface IDataProvider
     {
         List<RssItem> readRssItems();
+        List<Category> readRssCategories();
     }
 }

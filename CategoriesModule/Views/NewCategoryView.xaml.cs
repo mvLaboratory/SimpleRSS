@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace CategoriesModule
 {
     /// <summary>
-    /// Interaction logic for CategoriesListView.xaml
+    /// Interaction logic for NewCategoryView.xaml
     /// </summary>
-    public partial class CategoriesListView : UserControl
+    public partial class NewCategoryView : UserControl
     {
-        public CategoriesListView(CategoriesListVewModel model)
+        public NewCategoryView(NewCategoryViewModule viewModule)
         {
             InitializeComponent();
-            DataContext = model;
+            DataContext = viewModule;
         }
     }
 }

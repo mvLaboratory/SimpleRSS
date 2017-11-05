@@ -2,7 +2,7 @@
 
 namespace GuiEnvironment
 {
-    public class BackToNewsEvent : PubSubEvent<object>
+    public class ChangeTabEvent : PubSubEvent<object>
     {
     }
 }

@@ -5,14 +5,22 @@ using Prism.Events;
 
 namespace CategoriesModule
 {
-    class CategoriesListVewModel : BaseViewModel
+    public class CategoriesListVewModel : BaseViewModel
     {
         public ObservableCategories ObservableCategories { get; private set; }
+        public ICommand OpenNewCategoryTabCommand { get; set; }
 
         public CategoriesListVewModel(IEventAggregator eventAggregator, ObservableCategories categotiesList)
         {
             ObservableCategories = categotiesList;
             _eventAggregator = eventAggregator;
+
+            OpenNewCategoryTabCommand = new RelayCommand(openNewCategoryTab);
+        }
+
+        private void openNewCategoryTab(object @params)
+        {
+            _eventAggregator.GetEvent<ChangeTabEvent>().Publish(2);
         }
 
         public override ICommand GetCommand(string commandName)
@@ -20,7 +28,6 @@ namespace CategoriesModule
             return null;
         }
 
-        private SubscriptionToken _subscriptionToken;
         private IEventAggregator _eventAggregator;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using EleksRssCore;
-using System.Collections.Generic;
 using GuiEnvironment;
 
 namespace DesktopMainModule
@@ -11,6 +11,7 @@ namespace DesktopMainModule
         public ObservableCategories(IDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
+            CategoriesListChangedHandler(_dataProvider.readRssCategories());
         }
 
         public void CategoriesListChangedHandler(List<Category> items)
