@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using EleksRssCore;
 using GuiEnvironment;
 
-namespace DesktopMainModule
+namespace GuiEnvironment
 {
-    public class DataUpdater
+    public class DataUpdater: IDataUpdater
     {
         public DataUpdater(IEventAggregator eventAggregator, IDataProvider dataProvider)
         {

@@ -129,6 +129,10 @@
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CategoriesModule\CategoriesModule.csproj">
+      <Project>{b7534e8a-9c80-46bd-824c-9dec4977a66b}</Project>
+      <Name>CategoriesModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DesktopMainModule\DesktopMainModule.csproj">
       <Project>{32b641fa-f958-44ca-b12e-9ce6ea040188}</Project>
       <Name>DesktopMainModule</Name>
@@ -146,9 +150,7 @@
       <Name>UrlBrowserModule</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.2.0.0\build\netstandard1.4\Fody.targets" Condition="Exists('..\packages\Fody.2.0.0\build\netstandard1.4\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

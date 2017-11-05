@@ -1,7 +1,7 @@
 ﻿using EleksRssCore;
 using System.Collections.Generic;
 
-namespace DesktopMainModule
+namespace GuiEnvironment
 {
     public interface IDataProvider
     {

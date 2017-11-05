@@ -11,7 +11,6 @@ namespace DesktopMainModule
 {
     public class RssViewModel : BaseViewModel
     {
-        public ObservableCategories ObservableCategories { get; private set; }
         public ObservableRssItems ObservableRssItems { get; private set; }
         public int SelectedTabIndex {  get; set; }
         public ICommand RssItemDbClick
@@ -27,9 +26,8 @@ namespace DesktopMainModule
         }
 
 
-        public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, ObservableCategories categotiesList, IRegionManager regionManager, IUnityContainer container)
+        public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, IRegionManager regionManager, IUnityContainer container)
         {
-            ObservableCategories = categotiesList;
             ObservableRssItems = rssItemsList;
 
             _eventAggregator = eventAggregator;

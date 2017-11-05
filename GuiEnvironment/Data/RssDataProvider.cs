@@ -2,13 +2,12 @@
 using GuiEnvironment;
 using System.Collections.Generic;
 
-namespace DesktopMainModule
+namespace GuiEnvironment
 {
     public class RssDataProvider : IDataProvider
     {
-        public RssDataProvider(RssViewModel viewModel, StorageManager storageManager)
+        public RssDataProvider(StorageManager storageManager)
         {
-            _viewModel = viewModel;
             _storageManager = storageManager;
         }
 

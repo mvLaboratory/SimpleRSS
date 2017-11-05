@@ -72,6 +72,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Data\DataUpdater.cs" />
+    <Compile Include="Data\IDataProvider.cs" />
+    <Compile Include="Data\IDataUpdater.cs" />
+    <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="Events\BackToNewsEvent.cs" />
     <Compile Include="Events\RssItemsListChangedEvent.cs" />
     <Compile Include="Events\UrlChangedEvent.cs" />

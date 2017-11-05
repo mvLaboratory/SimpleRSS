@@ -1,4 +1,4 @@
-﻿
+﻿using CategoriesModule;
 using DesktopMainModule;
 using GuiEnvironment;
 using Microsoft.Practices.Unity;
@@ -20,6 +20,7 @@ namespace eleksRssGUI
             base.InitializeShell();
             Container.RegisterType<BaseViewModel, RssViewModel>();
             Container.RegisterType<IDataProvider, RssDataProvider>();
+            Container.RegisterType<IDataUpdater, DataUpdater>();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
@@ -31,9 +32,11 @@ namespace eleksRssGUI
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
             var newsModule = typeof(DesktopMainModule.DesktopMainModule);
             var urlBrowserModule = typeof(UrlBrowserModule.UrlBrowserModule);
+            var categoriesModule = typeof(CategoriesModule.CategoriesModule);
 
             moduleCatalog.AddModule(newsModule);
             moduleCatalog.AddModule(urlBrowserModule);
+            moduleCatalog.AddModule(categoriesModule);
         }
     }
 }

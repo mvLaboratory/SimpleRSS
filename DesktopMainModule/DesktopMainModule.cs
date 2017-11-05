@@ -1,16 +1,16 @@
 ﻿using Microsoft.Practices.Unity;
 using Prism.Modularity;
 using Prism.Regions;
+using GuiEnvironment;
 
 namespace DesktopMainModule
 {
     public class DesktopMainModule : IModule
     {
-        public DesktopMainModule(IRegionManager regionManager, DataUpdater updater, IUnityContainer container)
+        public DesktopMainModule(IRegionManager regionManager, IDataUpdater updater)
         {
             _regionManager = regionManager;
             _updater = updater;
-            _container = container;
         }
 
         public void Initialize()
@@ -20,7 +20,6 @@ namespace DesktopMainModule
         }
 
         private readonly IRegionManager _regionManager;
-        private readonly IUnityContainer _container;
-        private readonly DataUpdater _updater;
+        private readonly IDataUpdater _updater;
     }
 }
