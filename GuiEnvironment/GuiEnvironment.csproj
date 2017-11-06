@@ -76,6 +76,7 @@
     <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\IDataUpdater.cs" />
     <Compile Include="Data\RssDataProvider.cs" />
+    <Compile Include="Events\CategoriesListChangedEvent.cs" />
     <Compile Include="Events\ChangeTabEvent.cs" />
     <Compile Include="Events\RssItemsListChangedEvent.cs" />
     <Compile Include="Events\UrlChangedEvent.cs" />

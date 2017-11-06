@@ -13,7 +13,7 @@ namespace GuiEnvironment
 
         public List<RssItem> readRssItems()
         {
-            return _storageManager.readRssItems();
+            return _storageManager.readRssItems(ApplicationStateManager.currentCategory);
         }
 
         public List<Category> readRssCategories()

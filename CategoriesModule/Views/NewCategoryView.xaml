@@ -4,7 +4,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Width="Auto">
     <StackPanel>
-        <TextBlock>New Category</TextBlock>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="5*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0">
+                <TextBlock>Name:</TextBlock>
+                <TextBlock>URL:</TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBox Text="{Binding Name}"></TextBox>
+                <TextBox Text="{Binding URL}"></TextBox>
+            </StackPanel>
+        </Grid>
         <Button Content="Save" Command="{Binding SaveCategoryCommand}"/>
     </StackPanel>
 </UserControl>

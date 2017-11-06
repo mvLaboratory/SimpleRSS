@@ -27,6 +27,16 @@ namespace EleksRssCore
             return newItems;
         }
 
+        public List<RssItem> readRssItems(Category currentCaregory)
+        {
+            var newItems = Storage.RssItems.Where(item => item.Category == currentCaregory).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            if (newItems.Any())
+            {
+                lastReadedDate = newItems.Max(item => item.PublicationdDate);
+            }
+            return newItems;
+        }
+
         public List<Category> readRssCategoriesItems()
         {
             return Storage.Categories.ToList();
@@ -40,6 +50,12 @@ namespace EleksRssCore
             Storage.RssItems.Add(item);
             Storage.SaveChangesAsync();
             lastLoadedDate = item.PublicationdDate;
+        }
+
+        public void SaveCategory(Category item)
+        {
+            Storage.Categories.Add(item);
+            Storage.SaveChanges();
         }
 
         private static DateTime lastReadedDate;
