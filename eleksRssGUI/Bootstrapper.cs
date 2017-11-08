@@ -23,6 +23,7 @@ namespace eleksRssGUI
             Container.RegisterType<IDataProvider, RssDataProvider>();
             Container.RegisterType<IDataUpdater, DataUpdater>();
             Container.RegisterType<IDataSaver, RssDataSaver>();
+            Container.RegisterType<IStorageManager, StorageManager>();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();

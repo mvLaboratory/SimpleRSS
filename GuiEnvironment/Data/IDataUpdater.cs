@@ -1,5 +1,4 @@
-﻿
-namespace GuiEnvironment
+﻿namespace GuiEnvironment
 {
     public interface IDataUpdater
     {

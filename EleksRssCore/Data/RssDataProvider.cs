@@ -1,8 +1,6 @@
-﻿using EleksRssCore;
-using GuiEnvironment;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GuiEnvironment
+namespace EleksRssCore
 {
     public class RssDataProvider : IDataProvider
     {

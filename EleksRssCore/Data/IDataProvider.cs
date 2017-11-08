@@ -1,7 +1,6 @@
-﻿using EleksRssCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GuiEnvironment
+namespace EleksRssCore
 {
     public interface IDataProvider
     {

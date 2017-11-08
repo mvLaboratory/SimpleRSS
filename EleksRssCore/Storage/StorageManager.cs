@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace EleksRssCore
 {
-    public class StorageManager
+    public class StorageManager : IStorageManager
     {
         public RssStorage Storage { get; private set; }
         //TODO:: manage instance

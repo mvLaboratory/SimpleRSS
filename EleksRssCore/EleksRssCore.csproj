@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreInitializer.cs" />
+    <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\IDataSaver.cs" />
+    <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="Data\RssDataSaver.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\IModel.cs" />
