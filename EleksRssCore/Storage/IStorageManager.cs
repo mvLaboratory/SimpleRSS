@@ -4,14 +4,14 @@ namespace EleksRssCore
 {
     public interface IStorageManager
     {
-        List<RssItem> readRssItems();
+        List<IFeedItem> readRssItems();
 
-        List<RssItem> readRssItems(Category currentCaregory);
+        List<IFeedItem> readRssItems(ICategory currentCaregory);
 
-        List<Category> readRssCategoriesItems();
+        List<ICategory> readRssCategoriesItems();
 
-        void SaveRssItem(RssItem item);
+        void SaveRssItem(IFeedItem item);
 
-        void SaveCategory(Category item);
+        void SaveCategory(ICategory item);
     }
 }

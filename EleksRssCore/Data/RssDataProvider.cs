@@ -11,12 +11,26 @@ namespace EleksRssCore
 
         public List<RssItem> readRssItems()
         {
-            return _storageManager.readRssItems(ApplicationStateManager.currentCategory);
+            var items = _storageManager.readRssItems(ApplicationStateManager.currentCategory);
+            var result = new List<RssItem>();
+            foreach(var item in items)
+            {
+                result.Add((RssItem) item);
+            }
+
+            return result;
         }
 
         public List<Category> readRssCategories()
         {
-            return _storageManager.readRssCategoriesItems();
+            var items = _storageManager.readRssCategoriesItems();
+            var result = new List<Category>();
+            foreach (var item in items)
+            {
+                result.Add((Category)item);
+            }
+
+            return result;
         }
 
         private StorageManager _storageManager; 

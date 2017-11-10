@@ -3,3 +3,5 @@ https://erazerbrecht.wordpress.com/2015/06/11/sqlite-entityframework-6-tutorial/
 http://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki
 
 https://msdn.microsoft.com/en-us/library/ff921141(v=pandp.40).aspx
+
+https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application

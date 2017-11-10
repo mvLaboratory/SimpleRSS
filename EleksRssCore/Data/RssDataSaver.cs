@@ -18,6 +18,11 @@ namespace EleksRssCore
             _storageManager.SaveCategory(item);
         }
 
+        public bool saveRssItems(ICollection<IFeedItem> items)
+        {
+            return false;
+        }
+
         private StorageManager _storageManager;
     }
 }

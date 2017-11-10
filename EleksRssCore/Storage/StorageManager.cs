@@ -17,9 +17,9 @@ namespace EleksRssCore
             }
         }
 
-        public List<RssItem> readRssItems()
+        public List<IFeedItem> readRssItems()
         {
-            var newItems = Storage.RssItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            var newItems = Storage.FeedItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => item.PublicationdDate);
@@ -27,9 +27,9 @@ namespace EleksRssCore
             return newItems;
         }
 
-        public List<RssItem> readRssItems(Category currentCaregory)
+        public List<IFeedItem> readRssItems(ICategory currentCaregory)
         {
-            var newItems = Storage.RssItems.Where(item => item.Category == currentCaregory).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            var newItems = Storage.FeedItems.Where(item => item.Category == currentCaregory).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => item.PublicationdDate);
@@ -37,12 +37,12 @@ namespace EleksRssCore
             return newItems;
         }
 
-        public List<Category> readRssCategoriesItems()
+        public List<ICategory> readRssCategoriesItems()
         {
             return Storage.Categories.ToList();
         }
 
-        public void SaveRssItem(RssItem item)
+        public void SaveRssItem(IFeedItem item)
         {
             if (item.PublicationdDate <= lastLoadedDate)
                 return;
@@ -52,7 +52,7 @@ namespace EleksRssCore
             lastLoadedDate = item.PublicationdDate;
         }
 
-        public void SaveCategory(Category item)
+        public void SaveCategory(ICategory item)
         {
             Storage.Categories.Add(item);
             Storage.SaveChanges();
