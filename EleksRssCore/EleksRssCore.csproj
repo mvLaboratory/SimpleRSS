@@ -67,7 +67,9 @@
     <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="Data\RssDataSaver.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ICategory.cs" />
     <Compile Include="Models\IModel.cs" />
+    <Compile Include="Models\IFeedItem.cs" />
     <Compile Include="Models\RssItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +79,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Storage\Initializer.cs" />
+    <Compile Include="Storage\IStorage.cs" />
+    <Compile Include="Storage\IStorageManager.cs" />
+    <Compile Include="Storage\Repositories\GenericRepository.cs" />
+    <Compile Include="Storage\Repositories\UnitOfWork.cs" />
     <Compile Include="Storage\RssStorage.cs" />
     <Compile Include="Storage\Seeding.cs" />
     <Compile Include="Storage\SQLiteConfiguration .cs" />
