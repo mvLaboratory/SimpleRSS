@@ -5,6 +5,6 @@ namespace EleksRssCore
     public interface IDataSaver
     {
         void saveCategory(Category item);
-        bool saveRssItems(ICollection<IFeedItem> items);
+        bool saveRssItems(List<RssItem> items);
     }
 }

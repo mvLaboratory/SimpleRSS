@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace EleksRssCore
 {
@@ -15,7 +16,19 @@ namespace EleksRssCore
             var result = new List<RssItem>();
             foreach(var item in items)
             {
-                result.Add((RssItem) item);
+                result.Add(item);
+            }
+
+            return result;
+        }
+
+        public List<RssItem> readRssItems(Category category)
+        {
+            var items = _storageManager.readRssItems(category);
+            var result = new List<RssItem>();
+            foreach (var item in items)
+            {
+                result.Add(item);
             }
 
             return result;

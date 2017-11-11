@@ -10,25 +10,32 @@ namespace EleksRssCore
         //TODO:: manage instance
         public StorageManager()
         {
-            Storage = new RssStorage();
-            if (Storage.RssItems.Any())
+            UnitOfWork = new UnitOfWork();
+            Storage = (RssStorage) UnitOfWork.RssStorage;
+            if (Storage.FeedItems.Any())
             {
-                lastLoadedDate = Storage.RssItems.Max(item => item.PublicationdDate);
+                lastLoadedDate = Storage.FeedItems.Max(item => item.PublicationdDate);
             }
         }
 
-        public List<IFeedItem> readRssItems()
+        public UnitOfWork UnitOfWork { get; set; }
+
+        public List<RssItem> readRssItems()
         {
             var newItems = Storage.FeedItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
-                lastReadedDate = newItems.Max(item => item.PublicationdDate);
+                lastReadedDate = newItems.Max(item => (item).PublicationdDate);
             }
             return newItems;
         }
 
-        public List<IFeedItem> readRssItems(ICategory currentCaregory)
+        public List<RssItem> readRssItems(Category currentCaregory)
         {
+            if (currentCaregory == null)
+            {
+                return new List<RssItem>();
+            }
             var newItems = Storage.FeedItems.Where(item => item.Category == currentCaregory).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
@@ -37,22 +44,22 @@ namespace EleksRssCore
             return newItems;
         }
 
-        public List<ICategory> readRssCategoriesItems()
+        public List<Category> readRssCategoriesItems()
         {
             return Storage.Categories.ToList();
         }
 
-        public void SaveRssItem(IFeedItem item)
+        public void SaveRssItem(RssItem item)
         {
             if (item.PublicationdDate <= lastLoadedDate)
                 return;
 
-            Storage.RssItems.Add(item);
+            Storage.FeedItems.Add(item);
             Storage.SaveChangesAsync();
             lastLoadedDate = item.PublicationdDate;
         }
 
-        public void SaveCategory(ICategory item)
+        public void SaveCategory(Category item)
         {
             Storage.Categories.Add(item);
             Storage.SaveChanges();

@@ -18,9 +18,11 @@ namespace EleksRssCore
             _storageManager.SaveCategory(item);
         }
 
-        public bool saveRssItems(ICollection<IFeedItem> items)
+        public bool saveRssItems(List<RssItem> items)
         {
-            return false;
+            items.ForEach(item => _storageManager.UnitOfWork.FeedRepository.Insert(item));
+            _storageManager.UnitOfWork.Save();
+            return true;
         }
 
         private StorageManager _storageManager;

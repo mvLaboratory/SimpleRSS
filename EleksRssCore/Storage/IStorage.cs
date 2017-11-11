@@ -6,8 +6,8 @@ namespace EleksRssCore
 {
     public interface IStorage
     {
-        DbSet<ICategory> Categories { get; set; }
-        DbSet<IFeedItem> FeedItems { get; set; }
+        DbSet<Category> Categories { get; set; }
+        DbSet<RssItem> FeedItems { get; set; }
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
         DbEntityEntry Entry(object entity);

@@ -9,7 +9,7 @@ namespace EleksRssCore
     {
         [Column("Id")]
         [Key]
-        public long Id { get; set; }
+        public Int64 Id { get; set; }
 
         [Column("Name")]
         public String Name { get; set; }

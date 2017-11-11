@@ -12,6 +12,6 @@ namespace EleksRssCore
             }
         }
 
-        private static Int32 _updateInterval = 600000;
+        private static Int32 _updateInterval = 60000;
     }
 }

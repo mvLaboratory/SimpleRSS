@@ -2,25 +2,31 @@
 
 namespace EleksRssCore
 {
-    class UnitOfWork : IDisposable
+    public class UnitOfWork : IDisposable
     {
         private IStorage context = new RssStorage();
-        private GenericRepository<ICategory> categoryRepository;
-        private GenericRepository<IFeedItem> feedRepository;
+        private GenericRepository<Category> categoryRepository;
+        private GenericRepository<RssItem> feedRepository;
 
-        public GenericRepository<ICategory> DepartmentRepository
+        public GenericRepository<Category> CategoryRepository
         {
             get
             {
-                return this.categoryRepository ?? new GenericRepository<ICategory>(context);
+                return this.categoryRepository ?? new GenericRepository<Category>(context);
             }
         }
 
-        public GenericRepository<IFeedItem> CourseRepository
+        public GenericRepository<RssItem> FeedRepository
         {
             get
             {
-                return this.feedRepository ?? new GenericRepository<IFeedItem>(context);
+                return this.feedRepository ?? new GenericRepository<RssItem>(context);
+            }
+        }
+
+        public IStorage RssStorage { get
+            {
+                return context;
             }
         }
 

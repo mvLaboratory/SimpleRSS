@@ -1,5 +1,4 @@
-﻿using EleksRssCore.Utils;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace EleksRssCore
 {
@@ -8,6 +7,8 @@ namespace EleksRssCore
         public CoreInitializer()
         {
             _storageManager = new StorageManager();
+            _dataSaver = new RssDataSaver(_storageManager);
+            _dataProvider = new RssDataProvider(_storageManager);
         }
 
         async public void Run()
@@ -19,11 +20,13 @@ namespace EleksRssCore
         {
             while (true)
             {
-                RssDataReader.Read(_storageManager);
+                RssDataReader.Read(_dataProvider, _dataSaver);
                 await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }
 
         private readonly StorageManager _storageManager;
+        private readonly IDataSaver _dataSaver;
+        private readonly IDataProvider _dataProvider;
     }
 }
