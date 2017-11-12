@@ -24,7 +24,7 @@ namespace EleksRssCore
         public String Url { get; set; }
 
         [Column("Category")]
-        public ICategory Category { get; set; }
+        public Category Category { get; set; }
 
         [Column("CreationDate")]
         public DateTime CreationDate { get; set; }

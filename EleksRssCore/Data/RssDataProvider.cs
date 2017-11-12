@@ -40,7 +40,11 @@ namespace EleksRssCore
             var result = new List<Category>();
             foreach (var item in items)
             {
-                result.Add((Category)item);
+                if (ApplicationStateManager.currentCategory == null)
+                {
+                    ApplicationStateManager.currentCategory = item;
+                }
+                result.Add(item);
             }
 
             return result;

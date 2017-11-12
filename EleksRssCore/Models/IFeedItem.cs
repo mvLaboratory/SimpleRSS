@@ -9,7 +9,7 @@ namespace EleksRssCore
         String Title { get; set; }
         String Author { get; set; }
         String Url { get; set; }
-        ICategory Category { get; set; }
+        Category Category { get; set; }
         DateTime CreationDate { get; set; }
     }
 }
