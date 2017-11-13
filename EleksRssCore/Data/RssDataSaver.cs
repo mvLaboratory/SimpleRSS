@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EleksRssCore
 {
@@ -20,8 +16,8 @@ namespace EleksRssCore
 
         public bool saveRssItems(List<RssItem> items)
         {
-            items.ForEach(item => _storageManager.UnitOfWork.FeedRepository.Insert(item));
-            _storageManager.UnitOfWork.Save();
+            items.ForEach(item => _storageManager.SaveRssItem(item));
+            _storageManager.SaveRssItems();
             return true;
         }
 

@@ -17,6 +17,7 @@ namespace DesktopMainModule
         public void CategoriesListChangedHandler(Category item)
         {
             this.Add(item);
+            GuiManager.setCurrentCategory(item);
         }
 
         public void UpdateCategoriesList(List<Category> items)

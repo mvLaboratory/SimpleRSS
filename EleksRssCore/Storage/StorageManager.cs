@@ -12,10 +12,6 @@ namespace EleksRssCore
         {
             UnitOfWork = new UnitOfWork();
             Storage = (RssStorage) UnitOfWork.RssStorage;
-            if (Storage.FeedItems.Any())
-            {
-                lastLoadedDate = Storage.FeedItems.Max(item => item.PublicationdDate);
-            }
         }
 
         public UnitOfWork UnitOfWork { get; set; }
@@ -51,14 +47,17 @@ namespace EleksRssCore
             return Storage.Categories.ToList();
         }
 
-        public void SaveRssItem(RssItem item)
-        {
-            if (item.PublicationdDate <= lastLoadedDate)
+        public void SaveRssItem(RssItem itemForSave)
+        {            
+            if (Storage.FeedItems.Any(item => item.Url.Equals(itemForSave.Url)))
                 return;
 
-            Storage.FeedItems.Add(item);
-            Storage.SaveChangesAsync();
-            lastLoadedDate = item.PublicationdDate;
+            UnitOfWork.FeedRepository.Insert(itemForSave);
+        }
+
+        public void SaveRssItems()
+        {
+            UnitOfWork.Save();
         }
 
         public void SaveCategory(Category item)
@@ -68,6 +67,5 @@ namespace EleksRssCore
         }
 
         private static DateTime lastReadedDate;
-        private static DateTime lastLoadedDate;
     }
 }

@@ -37,7 +37,7 @@ namespace CategoriesModule
                 throw new ArgumentException("papam");
             }
 
-
+            GuiManager.setCurrentCategory((Category) @params);
         }
 
         public override ICommand GetCommand(string commandName)
