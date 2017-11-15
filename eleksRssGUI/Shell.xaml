@@ -2,7 +2,23 @@
         xmlns:prism="http://www.codeplex.com/prism"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="ShellWindow"
         Title="Eleks RSS reader" Height="600" Width="900">
 
-        <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion"/>
+        <Border Padding="10" x:Name="WindowBorder">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="&lt;&lt;"/>
+                <Button Content="&lt;"/>
+
+                <Button Content="&gt;"/>
+                <Button Content="&gt;&gt;"/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </Window>

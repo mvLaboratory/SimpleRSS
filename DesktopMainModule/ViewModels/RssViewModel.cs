@@ -12,7 +12,8 @@ namespace DesktopMainModule
     public class RssViewModel : BaseViewModel
     {
         public ObservableRssItems ObservableRssItems { get; private set; }
-        public int SelectedTabIndex {  get; set; }
+        public Int32 SelectedTabIndex {  get; set; }
+        public Int32 WindwHeight { get; set; }
         public ICommand RssItemDbClick
         {
             get {
@@ -41,6 +42,7 @@ namespace DesktopMainModule
             _container = container;
 
             SelectedTabIndex = 0;
+            WindwHeight = 830;
         }
 
         public override ICommand GetCommand(String commandName)
