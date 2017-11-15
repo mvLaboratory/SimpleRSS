@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EleksRssCore
 {
     [Table("Category")]
-    public class Category : IModel
+    public class Category : IModel, ICategory
     {
         [Column("Id")]
         [Key]
-        public long Id { get; set; }
+        public Int64 Id { get; set; }
 
         [Column("Name")]
         public String Name { get; set; }

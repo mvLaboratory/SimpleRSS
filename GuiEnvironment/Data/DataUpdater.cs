@@ -1,7 +1,7 @@
 ﻿using Prism.Events;
 using System.Threading.Tasks;
 using EleksRssCore;
-using GuiEnvironment;
+using System;
 
 namespace GuiEnvironment
 {
@@ -15,7 +15,8 @@ namespace GuiEnvironment
 
         async public void Start()
         {
-             await Task.Run(() => applicationRoutine());
+            await Task.Delay(2000);
+            await Task.Run(() => applicationRoutine());
         }
 
         private async void applicationRoutine()

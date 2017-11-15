@@ -11,16 +11,22 @@ namespace DesktopMainModule
         public ObservableCategories(IDataProvider dataProvider)
         {
             _dataProvider = dataProvider;
-            CategoriesListChangedHandler(_dataProvider.readRssCategories());
+            UpdateCategoriesList(_dataProvider.readRssCategories());
         }
 
-        public void CategoriesListChangedHandler(List<Category> items)
+        public void CategoriesListChangedHandler(Category item)
+        {
+            this.Add(item);
+            GuiManager.setCurrentCategory(item);
+        }
+
+        public void UpdateCategoriesList(List<Category> items)
         {
             Clear();
             this.AddRange(items);
         }
 
-        public bool RssItemsListEventFilter(List<Category> items)
+        public bool CategoriesListEventFilter(Category items)
         {
             return true;
         }

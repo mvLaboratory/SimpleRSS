@@ -1,11 +1,10 @@
+using System;
+using System.Data.Entity;
+using System.Data.SQLite;
+
 namespace EleksRssCore
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.SQLite;
-    using System.Linq;
-
-    public class RssStorage : DbContext
+    public class RssStorage : DbContext, IStorage
     {
 
         public RssStorage() : base(new SQLiteConnection()
@@ -24,6 +23,6 @@ namespace EleksRssCore
         }
 
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<RssItem> RssItems { get; set; }
+        public virtual DbSet<RssItem> FeedItems { get; set; }
     }
 }

@@ -4,26 +4,41 @@ using System.Linq;
 
 namespace EleksRssCore
 {
-    public class StorageManager
+    public class StorageManager : IStorageManager
     {
         public RssStorage Storage { get; private set; }
         //TODO:: manage instance
         public StorageManager()
         {
-            Storage = new RssStorage();
-            if (Storage.RssItems.Any())
-            {
-                lastLoadedDate = Storage.RssItems.Max(item => item.PublicationdDate);
-            }
+            UnitOfWork = new UnitOfWork();
+            Storage = (RssStorage) UnitOfWork.RssStorage;
         }
+
+        public UnitOfWork UnitOfWork { get; set; }
 
         public List<RssItem> readRssItems()
         {
-            var newItems = Storage.RssItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            var newItems = Storage.FeedItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            if (newItems.Any())
+            {
+                lastReadedDate = newItems.Max(item => (item).PublicationdDate);
+            }
+            return newItems;
+        }
+
+        public List<RssItem> readRssItems(Category currentCaregory)
+        {
+            if (currentCaregory == null)
+            {
+                return new List<RssItem>();
+            }
+
+            var newItems = Storage.FeedItems.Where(item => item.Category != null && item.Category.Id == currentCaregory.Id).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => item.PublicationdDate);
             }
+
             return newItems;
         }
 
@@ -32,17 +47,25 @@ namespace EleksRssCore
             return Storage.Categories.ToList();
         }
 
-        public void SaveRssItem(RssItem item)
-        {
-            if (item.PublicationdDate <= lastLoadedDate)
+        public void SaveRssItem(RssItem itemForSave)
+        {            
+            if (Storage.FeedItems.Any(item => item.Url.Equals(itemForSave.Url)))
                 return;
 
-            Storage.RssItems.Add(item);
-            Storage.SaveChangesAsync();
-            lastLoadedDate = item.PublicationdDate;
+            UnitOfWork.FeedRepository.Insert(itemForSave);
+        }
+
+        public void SaveRssItems()
+        {
+            UnitOfWork.Save();
+        }
+
+        public void SaveCategory(Category item)
+        {
+            Storage.Categories.Add(item);
+            Storage.SaveChanges();
         }
 
         private static DateTime lastReadedDate;
-        private static DateTime lastLoadedDate;
     }
 }

@@ -1,11 +1,11 @@
-﻿using EleksRssCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GuiEnvironment
+namespace EleksRssCore
 {
     public interface IDataProvider
     {
         List<RssItem> readRssItems();
+        List<RssItem> readRssItems(Category category);
         List<Category> readRssCategories();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CategoriesModule;
 using DesktopMainModule;
+using EleksRssCore;
 using GuiEnvironment;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
@@ -21,6 +22,10 @@ namespace eleksRssGUI
             Container.RegisterType<BaseViewModel, RssViewModel>();
             Container.RegisterType<IDataProvider, RssDataProvider>();
             Container.RegisterType<IDataUpdater, DataUpdater>();
+            Container.RegisterType<IDataSaver, RssDataSaver>();
+            Container.RegisterType<IStorageManager, StorageManager>();
+            Container.RegisterType<ICategory, Category>();
+            Container.RegisterType<IFeedItem, RssItem>();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();

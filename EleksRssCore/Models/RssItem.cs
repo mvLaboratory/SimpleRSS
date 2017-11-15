@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EleksRssCore
 {
     [Table("RssItem")]
-    public class RssItem : IModel
+    public class RssItem : IModel, IFeedItem
     {
         [Column("Id")]
         [Key]
