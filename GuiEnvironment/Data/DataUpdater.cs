@@ -25,6 +25,7 @@ namespace GuiEnvironment
             {
                 var itemsList = _dataProvider.readRssItems();
                 _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
+                _eventAggregator.GetEvent<PagesChangedEvent>().Publish(new PagesDataStructure());
                 await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }

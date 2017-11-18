@@ -74,8 +74,10 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Data\DataUpdater.cs" />
     <Compile Include="Data\IDataUpdater.cs" />
+    <Compile Include="Data\PagesDataStructure.cs" />
     <Compile Include="Events\CategoriesListChangedEvent.cs" />
     <Compile Include="Events\ChangeTabEvent.cs" />
+    <Compile Include="Events\PagesChangedEvent.cs" />
     <Compile Include="Events\RssItemsListChangedEvent.cs" />
     <Compile Include="Events\UrlChangedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

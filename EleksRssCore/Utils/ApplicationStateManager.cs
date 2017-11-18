@@ -12,7 +12,17 @@ namespace EleksRssCore
                 return 10;
             }
         }
-        public static Int32 currentPage { get; set; }
+        public static Int32 currentPage {
+            get
+            {
+                return _currentPage;
+            }
+            set
+            {
+                _currentPage = value;
+            }
+        }
+
         public static Int32 pageCount {
             get
             {
@@ -24,6 +34,7 @@ namespace EleksRssCore
             }
         }
 
-        private static Int32 _pageCount;
+        private static Int32 _pageCount = 0;
+        private static Int32 _currentPage = 1;
     }
 }
