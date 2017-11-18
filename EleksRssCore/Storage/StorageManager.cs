@@ -32,7 +32,7 @@ namespace EleksRssCore
             {
                 return new List<RssItem>();
             }
-
+            ApplicationStateManager.pageCount = Storage.FeedItems.Count();
             var newItems = Storage.FeedItems.Where(item => item.Category != null && item.Category.Id == currentCaregory.Id).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {

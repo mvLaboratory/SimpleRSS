@@ -12,13 +12,7 @@
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
             <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="&lt;&lt;"/>
-                <Button Content="&lt;"/>
-
-                <Button Content="&gt;"/>
-                <Button Content="&gt;&gt;"/>
-            </StackPanel>
+            <ItemsControl  Grid.Row="1" Name="PagingRegion" prism:RegionManager.RegionName="PagingRegion"/>
         </Grid>
     </Border>
 </Window>

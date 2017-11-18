@@ -17,7 +17,6 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="0, 0, 10, 0" Text="{Binding Path=PublicationdDate, FallbackValue=[Empty Date]}"/>
                     <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}"/>
-
                     <TextBlock Grid.Column="2" Margin="0, 0, 10, 0">
                         <Hyperlink>Link</Hyperlink>
                     </TextBlock>
