@@ -18,7 +18,9 @@ namespace EleksRssCore
 
         public List<RssItem> readRssItems()
         {
-            var newItems = Storage.FeedItems.Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            Int32 currentPage = ApplicationStateManager.currentPage - 1;
+            Int32 itemsPerPage = ApplicationStateManager.itemsPerPage;
+            var newItems = Storage.FeedItems.Skip(currentPage * itemsPerPage).Take(itemsPerPage).OrderByDescending(item => item.PublicationdDate).ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => (item).PublicationdDate);
@@ -33,7 +35,14 @@ namespace EleksRssCore
                 return new List<RssItem>();
             }
             ApplicationStateManager.pageCount = Storage.FeedItems.Count();
-            var newItems = Storage.FeedItems.Where(item => item.Category != null && item.Category.Id == currentCaregory.Id).Take(10).OrderByDescending(item => item.PublicationdDate).ToList();
+            Int32 currentPage = ApplicationStateManager.currentPage - 1;
+            Int32 itemsPerPage = ApplicationStateManager.itemsPerPage;
+
+            var newItems = Storage.FeedItems
+                .Where(item => item.Category != null && item.Category.Id == currentCaregory.Id)
+                .OrderByDescending(item => item.PublicationdDate)
+                .Skip(currentPage * itemsPerPage).Take(itemsPerPage)
+                .ToList();
             if (newItems.Any())
             {
                 lastReadedDate = newItems.Max(item => item.PublicationdDate);

@@ -38,6 +38,7 @@ namespace CategoriesModule
             }
 
             GuiManager.setCurrentCategory((Category) @params);
+            _eventAggregator.GetEvent<UpdateRequestEvent>().Publish(true);
         }
 
         public override ICommand GetCommand(string commandName)

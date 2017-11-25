@@ -11,7 +11,10 @@ namespace GuiEnvironment
         {
             _eventAggregator = eventAggregator;
             _dataProvider = dataProvider;
-        } 
+
+            UpdateRequestEvent updateRequestEvent = _eventAggregator.GetEvent<UpdateRequestEvent>();
+            _subscriptionToken = updateRequestEvent.Subscribe(updateRequestEventHandler, ThreadOption.UIThread, false, UpdateRequestEventFilter);
+        }
 
         async public void Start()
         {
@@ -23,14 +26,30 @@ namespace GuiEnvironment
         {
             while (true)
             {
-                var itemsList = _dataProvider.readRssItems();
-                _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
-                _eventAggregator.GetEvent<PagesChangedEvent>().Publish(new PagesDataStructure());
+                update();
                 await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }
 
+        private void update()
+        {
+            var itemsList = _dataProvider.readRssItems();
+            _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
+            _eventAggregator.GetEvent<PagesChangedEvent>().Publish(new PagesDataStructure());
+        }
+
+        private void updateRequestEventHandler(bool param)
+        {
+            update();
+        }
+        
+        private bool UpdateRequestEventFilter(bool param)
+        {
+            return true;
+        }
+
         private IDataProvider _dataProvider;
         private IEventAggregator _eventAggregator;
+        private SubscriptionToken _subscriptionToken;
     }
 }
