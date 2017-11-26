@@ -9,7 +9,7 @@
         <StackPanel Orientation="Horizontal">
             <Button Content="Back" Command="{Binding BackToNewsCommand}"></Button>
         </StackPanel>
-        <WebBrowser Height="900px" x:Name="NewsBrowser" src:WebBrowserProperties.Url="{Binding NewsURL}"/>
+        <WebBrowser Height="900px" x:Name="NewsBrowser" Navigated="NewsBrowser_Navigated" src:WebBrowserProperties.Url="{Binding NewsURL}"/>
     </StackPanel>
 
 </UserControl>
