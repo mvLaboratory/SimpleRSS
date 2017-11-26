@@ -27,7 +27,7 @@ namespace UrlBrowserModule
                 String browserUrl = GetUrl(webBrowser);
                 if (browserUrl != null && browserUrl != string.Empty)
                 {
-                    webBrowser.Navigate(browserUrl);    
+                    webBrowser.Navigate(browserUrl);
                 }
                 else
                 {
