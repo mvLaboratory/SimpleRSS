@@ -34,7 +34,7 @@
         <TabItem  Header="">
             <DockPanel x:Name="RssDockPanel">
                 <StackPanel DockPanel.Dock="Top">
-                    <Button HorizontalAlignment="Right" Width="100">Settings</Button>
+                    <!--<Button HorizontalAlignment="Right" Width="100">Settings</Button> -->
                 </StackPanel>
                 <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
                     <ItemsControl Name="CategotiesViewRegion" prism:RegionManager.RegionName="CategotiesViewRegion"/>
