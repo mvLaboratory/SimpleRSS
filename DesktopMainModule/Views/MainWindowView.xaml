@@ -14,14 +14,16 @@
                 </StackPanel.InputBindings>
                 <TextBlock Text="{Binding Path=Title, FallbackValue=[Empty]}" HorizontalAlignment="Stretch"/>
                 <Grid Margin="5, 0, 8, 5">
+                    <Grid.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding DataContext.RssItemDbClick, RelativeSource={RelativeSource AncestorType= {x:Type DesktopMainModule:MainWindowView}}}"
+                                  CommandParameter="{Binding Url}"/>
+                    </Grid.InputBindings>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Margin="0, 0, 10, 0" Text="{Binding Path=PublicationdDate, FallbackValue=[Empty Date]}"/>
-                    <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}"/>
+                    <TextBlock Grid.Column="1" Margin="0, 0, 10, 0" Text="{Binding Path=Author, FallbackValue=[Empty Author]}" HorizontalAlignment="Stretch"/>
                 </Grid>
             </StackPanel>
         </DataTemplate>

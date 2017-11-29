@@ -7,13 +7,13 @@ using EleksRssCore;
 
 namespace CategoriesModule
 {
-    public class CategoriesListVewModel : BaseViewModel
+    public class CategoriesListViewModel : BaseViewModel, ICategoriesListViewModel
     {
         public ObservableCategories ObservableCategories { get; private set; }
         public ICommand OpenNewCategoryTabCommand { get; set; }
         public ICommand SelectCategoryCommand { get; set; }
 
-        public CategoriesListVewModel(IEventAggregator eventAggregator, ObservableCategories categotiesList)
+        public CategoriesListViewModel(IEventAggregator eventAggregator, ObservableCategories categotiesList)
         {
             ObservableCategories = categotiesList;
             _eventAggregator = eventAggregator;
@@ -39,11 +39,6 @@ namespace CategoriesModule
 
             GuiManager.setCurrentCategory((Category) @params);
             _eventAggregator.GetEvent<UpdateRequestEvent>().Publish(true);
-        }
-
-        public override ICommand GetCommand(string commandName)
-        {
-            return null;
         }
 
         private IEventAggregator _eventAggregator;

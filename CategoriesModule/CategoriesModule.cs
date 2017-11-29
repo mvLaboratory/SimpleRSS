@@ -1,5 +1,4 @@
 ﻿using Prism.Regions;
-using GuiEnvironment;
 using Prism.Modularity;
 
 namespace CategoriesModule

@@ -9,7 +9,5 @@ namespace GuiEnvironment
     public abstract class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
-
-        public abstract ICommand GetCommand(String commandName);
     }
 }

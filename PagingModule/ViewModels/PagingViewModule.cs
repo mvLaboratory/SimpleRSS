@@ -59,11 +59,6 @@ namespace PagingModule
             return true;
         }
 
-        public override ICommand GetCommand(string commandName)
-        {
-            return null;
-        }
-
         private String _pagingText;
         private IEventAggregator _eventAggregator;
         private SubscriptionToken _subscriptionToken;

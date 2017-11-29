@@ -96,6 +96,7 @@
     <Compile Include="Collections\ObservableRssItems.cs" />
     <Compile Include="DesktopMainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\IFeedViewModel.cs" />
     <Compile Include="ViewModels\RssViewModel.cs" />
     <Compile Include="Views\MainWindowView.xaml.cs">
       <DependentUpon>MainWindowView.xaml</DependentUpon>
