@@ -10,7 +10,7 @@ namespace EleksRssCore
     {
         static void Main(string[] args)
         {
-            new StorageManager();
+            //new StorageManager();
 
         }
     }
