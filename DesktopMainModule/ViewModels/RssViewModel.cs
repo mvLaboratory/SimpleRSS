@@ -1,15 +1,13 @@
 ﻿using System;
 using Prism.Events;
 using System.Windows.Input;
-using System.Collections.Generic;
-using System.Linq;
 using Prism.Regions;
 using Microsoft.Practices.Unity;
 using GuiEnvironment;
 
 namespace DesktopMainModule
 {
-    public class RssViewModel : BaseViewModel
+    public class RssViewModel : BaseViewModel, IFeedViewModel
     {
         public ObservableRssItems ObservableRssItems { get; private set; }
         public Int32 SelectedTabIndex {  get; set; }
@@ -43,14 +41,6 @@ namespace DesktopMainModule
 
             SelectedTabIndex = 0;
             WindwHeight = 830;
-        }
-
-        public override ICommand GetCommand(String commandName)
-        {
-            Dictionary<String, ICommand> commandDictionary = new Dictionary<String, ICommand>();
-            commandDictionary.Add("RssItemDbClick", RssItemDbClick);
-
-            return commandDictionary.FirstOrDefault(item => item.Key.Equals(commandName)).Value;
         }
         
         private void openBrowser(object url)

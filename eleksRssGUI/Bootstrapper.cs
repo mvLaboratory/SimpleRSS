@@ -1,4 +1,5 @@
-﻿using DesktopMainModule;
+﻿using CategoriesModule;
+using DesktopMainModule;
 using EleksRssCore;
 using GuiEnvironment;
 using Microsoft.Practices.Unity;
@@ -6,6 +7,7 @@ using PagingModule;
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
+using UrlBrowserModule;
 
 namespace eleksRssGUI
 {
@@ -19,7 +21,6 @@ namespace eleksRssGUI
         protected override void InitializeShell()
         {
             base.InitializeShell();
-            Container.RegisterType<BaseViewModel, RssViewModel>();
             Container.RegisterType<IDataProvider, RssDataProvider>();
             Container.RegisterType<IDataUpdater, DataUpdater>();
             Container.RegisterType<IDataSaver, RssDataSaver>();
@@ -27,6 +28,10 @@ namespace eleksRssGUI
             Container.RegisterType<ICategory, Category>();
             Container.RegisterType<IFeedItem, RssItem>();
             Container.RegisterType<IPagingViewModule, PagingViewModule>();
+            Container.RegisterType<ICategoriesListViewModel, CategoriesListViewModel>();
+            Container.RegisterType<INewCategoryViewModel, NewCategoryViewModel>();
+            Container.RegisterType<IFeedViewModel, RssViewModel>();
+            Container.RegisterType<IUrlBrowserViewModule, UrlBrowserViewModel>();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();

@@ -10,7 +10,7 @@ using Prism.Events;
 
 namespace UrlBrowserModule
 {
-    public class UrlBrowserViewModel : BaseViewModel
+    public class UrlBrowserViewModel : BaseViewModel, IUrlBrowserViewModule
     {
         public ICommand BackToNewsCommand { get; set; }
         public String NewsURL { get; set; }
@@ -21,11 +21,6 @@ namespace UrlBrowserModule
             UrlChangedEvent urlChangedEvent = eventAggregator.GetEvent<UrlChangedEvent>();
             _subscriptionToken = urlChangedEvent.Subscribe(UrlChangedEventHandler, ThreadOption.UIThread, false, RssItemsListEventFilter);
             BackToNewsCommand = new RelayCommand(backToNews);
-        }
-
-        public override ICommand GetCommand(String commandName)
-        {
-            return null;
         }
 
         public void UrlChangedEventHandler(String url)

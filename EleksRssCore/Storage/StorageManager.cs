@@ -34,7 +34,9 @@ namespace EleksRssCore
             {
                 return new List<RssItem>();
             }
-            ApplicationStateManager.pageCount = Storage.FeedItems.Count();
+            ApplicationStateManager.pageCount = Storage.FeedItems
+                .Where(item => item.Category != null && item.Category.Id == currentCaregory.Id)
+                .Count();
             Int32 currentPage = ApplicationStateManager.currentPage - 1;
             Int32 itemsPerPage = ApplicationStateManager.itemsPerPage;
 

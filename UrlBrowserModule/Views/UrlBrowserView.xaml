@@ -2,14 +2,14 @@
                 xmlns:prism="http://www.codeplex.com/prism"
                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
-                xmlns:src="clr-namespace:UrlBrowserModule" 
+                xmlns:UrlBrowserModule="clr-namespace:UrlBrowserModule" 
                 Width="Auto">
 
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Content="Back" Command="{Binding BackToNewsCommand}"></Button>
         </StackPanel>
-        <WebBrowser Height="900px" x:Name="NewsBrowser" Navigated="NewsBrowser_Navigated" src:WebBrowserProperties.Url="{Binding NewsURL}"/>
+        <WebBrowser Height="900px" x:Name="NewsBrowser" Navigated="NewsBrowser_Navigated" UrlBrowserModule:WebBrowserProperties.Url="{Binding NewsURL}"/>
     </StackPanel>
 
 </UserControl>

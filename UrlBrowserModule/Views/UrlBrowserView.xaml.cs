@@ -5,7 +5,7 @@ namespace UrlBrowserModule
 {
     public partial class UrlBrowserView : UserControl
     {
-        public UrlBrowserView(UrlBrowserViewModel model)
+        public UrlBrowserView(IUrlBrowserViewModule model)
         {
             InitializeComponent();
             DataContext = model;

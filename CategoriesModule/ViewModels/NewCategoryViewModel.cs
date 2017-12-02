@@ -10,23 +10,18 @@ using System.Windows.Input;
 
 namespace CategoriesModule
 {
-    public class NewCategoryViewModule : BaseViewModel
+    public class NewCategoryViewModel : BaseViewModel, INewCategoryViewModel
     {
         public String Name { get; set; }
         public String URL { get; set; }
         public ICommand SaveCategoryCommand { get; set; }
 
-        public NewCategoryViewModule(IEventAggregator eventAggregator, IDataSaver dataSaver)
+        public NewCategoryViewModel(IEventAggregator eventAggregator, IDataSaver dataSaver)
         {
             _eventAggregator = eventAggregator;
             _dataSaver = dataSaver;
 
             SaveCategoryCommand = new RelayCommand(saveCategory);
-        }
-
-        public override ICommand GetCommand(string commandName)
-        {
-            return null;
         }
 
         private void saveCategory(object @params)

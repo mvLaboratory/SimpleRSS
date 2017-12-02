@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="UrlBrowserModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\IUrlBrowserViewModule.cs" />
     <Compile Include="ViewModels\UrlBrowserViewModel.cs" />
     <Compile Include="ViewModels\WebBrowserProperties.cs" />
     <Compile Include="Views\UrlBrowserView.xaml.cs">
