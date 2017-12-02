@@ -20,8 +20,13 @@ namespace EleksRssCore
         [Column("CreationDate")]
         public DateTime CreationDate { get; set; }
 
-        public Category(long id, String name, String url)
+        public Category(Int64 id, String name, String url)
         {
+            if (id < 0)
+            {
+                throw new ArgumentOutOfRangeException("id");
+            }
+
             Id = id;
             Name = name;
             RssURL = url;

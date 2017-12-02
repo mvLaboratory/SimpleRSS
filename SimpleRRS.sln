@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EleksRssGUI", "eleksRssGUI\EleksRssGUI.csproj", "{D7F02B02-74D5-4A63-85AA-BC82CBEB6DA3}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CategoriesModule", "CategoriesModule\CategoriesModule.csproj", "{B7534E8A-9C80-46BD-824C-9DEC4977A66B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagingModule", "PagingModule\PagingModule.csproj", "{EBEEA650-ED53-4969-9866-E6408DEF3BDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTests", "UnitTests\CoreTests.csproj", "{308C292A-4A14-4E73-8635-3104713B4DE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2D30DFC9-77CE-4D92-804C-227115726DF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,14 @@ Global
 		{EBEEA650-ED53-4969-9866-E6408DEF3BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EBEEA650-ED53-4969-9866-E6408DEF3BDD}.Release|x86.ActiveCfg = Release|x86
 		{EBEEA650-ED53-4969-9866-E6408DEF3BDD}.Release|x86.Build.0 = Release|x86
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Debug|x86.Build.0 = Debug|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Release|x86.ActiveCfg = Release|Any CPU
+		{308C292A-4A14-4E73-8635-3104713B4DE8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +106,7 @@ Global
 		{4C257704-3D94-4D8A-B835-B8AEDC06A0AC} = {C57E8935-D7D3-4B94-BD0A-0862A0F8AD62}
 		{B7534E8A-9C80-46BD-824C-9DEC4977A66B} = {C57E8935-D7D3-4B94-BD0A-0862A0F8AD62}
 		{EBEEA650-ED53-4969-9866-E6408DEF3BDD} = {C57E8935-D7D3-4B94-BD0A-0862A0F8AD62}
+		{308C292A-4A14-4E73-8635-3104713B4DE8} = {2D30DFC9-77CE-4D92-804C-227115726DF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19FC1F4A-394C-4668-85D6-14CA2F10722A}
