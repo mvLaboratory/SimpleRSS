@@ -51,6 +51,7 @@
     <Compile Include="Models\CategoryUnitTest.cs" />
     <Compile Include="Models\RssItemUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\StorageManagerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
