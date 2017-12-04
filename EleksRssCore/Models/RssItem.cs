@@ -31,6 +31,11 @@ namespace EleksRssCore
 
         public RssItem(long id, DateTime publicationdDate, String title, String author, String url, Category category)
         {
+            if (id < 0)
+            {
+                throw new ArgumentException("id");
+            }
+
             Id = id;
             PublicationdDate = publicationdDate;
             Title = title;
@@ -55,6 +60,11 @@ namespace EleksRssCore
         public RssItem() : this("", "", "", null)
         {
 
+        }
+
+        public override String ToString()
+        {
+            return Title;
         }
 
         private static long _lastId;
