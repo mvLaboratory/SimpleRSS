@@ -7,9 +7,6 @@ namespace eleksRssGUI
         public Shell()
         {
             InitializeComponent();
-
-            //IViewModelFactory modelViewFactory = new ViewModelFactory();
-            //DataContext = modelViewFactory.GetRssViewModel();
         }
     }
 }

@@ -4,7 +4,7 @@ namespace EleksRssCore
 {
     public class RssDataSaver: IDataSaver
     {
-        public RssDataSaver(StorageManager storageManager)
+        public RssDataSaver(IStorageManager storageManager)
         {
             _storageManager = storageManager;
         }
@@ -17,10 +17,10 @@ namespace EleksRssCore
         public bool saveRssItems(List<RssItem> items)
         {
             items.ForEach(item => _storageManager.SaveRssItem(item));
-            _storageManager.SaveRssItems();
+            _storageManager.SaveFeedItems();
             return true;
         }
 
-        private StorageManager _storageManager;
+        private IStorageManager _storageManager;
     }
 }

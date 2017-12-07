@@ -66,7 +66,7 @@ namespace EleksRssCore
             UnitOfWork.FeedRepository.Insert(itemForSave);
         }
 
-        public void SaveRssItems()
+        public void SaveFeedItems()
         {
             UnitOfWork.Save();
         }

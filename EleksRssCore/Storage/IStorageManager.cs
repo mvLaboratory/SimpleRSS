@@ -12,6 +12,8 @@ namespace EleksRssCore
 
         List<Category> readRssCategoriesItems();
 
+        void SaveFeedItems();
+
         void SaveRssItem(RssItem item);
 
         void SaveCategory(Category item);

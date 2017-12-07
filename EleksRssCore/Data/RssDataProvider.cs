@@ -5,7 +5,7 @@ namespace EleksRssCore
 {
     public class RssDataProvider : IDataProvider
     {
-        public RssDataProvider(StorageManager storageManager)
+        public RssDataProvider(IStorageManager storageManager)
         {
             _storageManager = storageManager;
         }
@@ -50,6 +50,6 @@ namespace EleksRssCore
             return result;
         }
 
-        private StorageManager _storageManager; 
+        private IStorageManager _storageManager; 
     }
 }

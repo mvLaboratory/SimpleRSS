@@ -33,6 +33,9 @@ namespace eleksRssGUI
             Container.RegisterType<IFeedViewModel, RssViewModel>();
             Container.RegisterType<IUrlBrowserViewModule, UrlBrowserViewModel>();
 
+            var coreInitializer = Container.Resolve<CoreInitializer>();
+            coreInitializer.Run();
+
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
         }

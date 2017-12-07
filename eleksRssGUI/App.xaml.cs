@@ -9,8 +9,6 @@ namespace eleksRssGUI
         {
             base.OnStartup(e);
 
-            new CoreInitializer().Run();
-
             new Bootstrapper().Run();
         }
     }

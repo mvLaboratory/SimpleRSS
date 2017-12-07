@@ -5,11 +5,11 @@ namespace EleksRssCore
 {
     public class CoreInitializer
     {
-        public CoreInitializer()
+        public CoreInitializer(IStorageManager storageManager, IDataSaver dataSaver, IDataProvider dataProvider)
         {
-            _storageManager = new StorageManager();
-            _dataSaver = new RssDataSaver(_storageManager);
-            _dataProvider = new RssDataProvider(_storageManager);
+            _storageManager = storageManager;
+            _dataSaver = dataSaver;
+            _dataProvider = dataProvider;
         }
 
         async public void Run()
@@ -26,7 +26,7 @@ namespace EleksRssCore
             }
         }
 
-        private readonly StorageManager _storageManager;
+        private readonly IStorageManager _storageManager;
         private readonly IDataSaver _dataSaver;
         private readonly IDataProvider _dataProvider;
     }
