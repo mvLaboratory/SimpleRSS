@@ -7,14 +7,16 @@ namespace EleksRssCore
     public class StorageManager : IStorageManager
     {
         public RssStorage Storage { get; private set; }
-        //TODO:: manage instance
-        public StorageManager()
-        {
-            UnitOfWork = new UnitOfWork();
-            Storage = (RssStorage) UnitOfWork.RssStorage;
-        }
-
         public UnitOfWork UnitOfWork { get; set; }
+
+        //TODO:: manage instance
+        public StorageManager(UnitOfWork unitOfWork, RssStorage storage)
+        {
+            //UnitOfWork = new UnitOfWork();
+            //Storage = (RssStorage) UnitOfWork.RssStorage;
+            UnitOfWork = unitOfWork;
+            Storage = storage;
+        }
 
         public List<RssItem> readRssItems()
         {

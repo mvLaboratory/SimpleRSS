@@ -7,8 +7,9 @@ namespace UnitTests.Storage
     public class StorageManagerUnitTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Test_StorageManager_Constractor()
         {
+            
         }
     }
 }
