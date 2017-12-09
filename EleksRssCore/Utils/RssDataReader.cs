@@ -6,6 +6,7 @@ using System.Xml;
 
 namespace EleksRssCore
 {
+    //TODO:: devide in two classes
     public class RssDataReader
     {
         public static void Read(IDataProvider dataProvider, IDataSaver dataSaver)

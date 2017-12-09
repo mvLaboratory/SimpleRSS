@@ -13,6 +13,8 @@ namespace UnitTests
         public void Test_RssDataReader_Read_Null()
         {
             RssDataReader.Read(null, null);
+            RssDataReader.Read(new IDataReaderFake(), null);
+            RssDataReader.Read(null, new IDataSaverFake());
         }
     }
 }

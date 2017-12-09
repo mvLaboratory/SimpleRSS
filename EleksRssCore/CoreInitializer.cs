@@ -5,6 +5,7 @@ namespace EleksRssCore
 {
     public class CoreInitializer
     {
+        //TODO:init from Unity, add reader
         public CoreInitializer(IStorageManager storageManager, IDataSaver dataSaver, IDataProvider dataProvider)
         {
             _storageManager = storageManager;
