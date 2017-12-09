@@ -9,6 +9,7 @@ namespace UnitTests
     public class RssDataSaverUnitTest
     {
         [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Test_RssDataReader_Read_Null()
         {
             RssDataReader.Read(null, null);

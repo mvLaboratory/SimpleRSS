@@ -12,10 +12,11 @@ namespace EleksRssCore
         //TODO:: manage instance
         public StorageManager(UnitOfWork unitOfWork, RssStorage storage)
         {
+
             //UnitOfWork = new UnitOfWork();
             //Storage = (RssStorage) UnitOfWork.RssStorage;
-            UnitOfWork = unitOfWork;
-            Storage = storage;
+            UnitOfWork = unitOfWork ?? throw new ArgumentNullException("unitOfWork");
+            Storage = storage ?? throw new ArgumentNullException("storage");
         }
 
         public List<RssItem> readRssItems()

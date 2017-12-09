@@ -10,6 +10,15 @@ namespace EleksRssCore
     {
         public static void Read(IDataProvider dataProvider, IDataSaver dataSaver)
         {
+            if (dataProvider == null)
+            {
+                throw new ArgumentNullException("dataProvider");
+            }
+            if (dataSaver == null)
+            {
+                throw new ArgumentNullException("dataSaver");
+            }
+
             List<Category> categoriesList = dataProvider.readRssCategories();
             categoriesList.ForEach(cat =>
             {
