@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
-using System.Xml;
 
 namespace EleksRssCore
 {
-    //TODO:: devide in two classes
-    public class RssDataReader
+    public class RssDataReader : IDataReader
     {
-        public static void Read(IDataProvider dataProvider, IDataSaver dataSaver)
+        public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
         {
             if (dataProvider == null)
             {
@@ -19,28 +17,30 @@ namespace EleksRssCore
             {
                 throw new ArgumentNullException("dataSaver");
             }
-
-            List<Category> categoriesList = dataProvider.readRssCategories();
-            categoriesList.ForEach(cat =>
+            if (urlReader == null)
             {
-                var _url = cat.RssURL;
-                var rssFeed = readUrl(_url);
-                if (rssFeed != null && rssFeed.Items.Any())
-                {
-                    saveRssFeed(rssFeed, dataSaver, cat);
-                }
-            });      
+                throw new ArgumentNullException("urlReader");
+            }
+
+            _urlReader = urlReader;
+            _dataProvider = dataProvider;
+            _dataSaver = dataSaver;
         }
 
-        private static SyndicationFeed readUrl(String url)
+        public void Read()
         {
-            SyndicationFeed result = null;
 
-            using (var reader = XmlReader.Create(url))
+
+            List<Category> categoriesList = _dataProvider.readRssCategories();
+            categoriesList.ForEach(cat =>
             {
-                result = SyndicationFeed.Load(reader);
-            }
-            return result;
+                String _url = cat.RssURL;
+                SyndicationFeed rssFeed = _urlReader.ReadUrl(_url);
+                if (rssFeed != null && rssFeed.Items.Any())
+                {
+                    saveRssFeed(rssFeed, _dataSaver, cat);
+                }
+            });      
         }
 
         private static bool saveRssFeed(SyndicationFeed rssFeed, IDataSaver dataSaver, Category category)
@@ -50,5 +50,9 @@ namespace EleksRssCore
             dataSaver.saveRssItems(rssItems);
             return true;
         }
+
+        private readonly IUrlReader _urlReader;
+        private readonly IDataSaver _dataSaver;
+        private readonly IDataProvider _dataProvider;
     }
 }

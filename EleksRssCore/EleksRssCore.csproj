@@ -84,9 +84,11 @@
     <Compile Include="CoreInitializer.cs" />
     <Compile Include="Data\IDataProvider.cs" />
     <Compile Include="Data\IDataSaver.cs" />
+    <Compile Include="Data\IDataReader.cs" />
     <Compile Include="Data\RssDataProvider.cs" />
     <Compile Include="Data\RssDataSaver.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CoreInitializerParmeters.cs" />
     <Compile Include="Models\ICategory.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\IFeedItem.cs" />
@@ -109,7 +111,9 @@
     <Compile Include="Storage\StorageManager.cs" />
     <Compile Include="Utils\ApplicationStateManager.cs" />
     <Compile Include="Utils\ConfigurationProvider.cs" />
-    <Compile Include="Utils\RssDataReader.cs" />
+    <Compile Include="Utils\IUrlReader.cs" />
+    <Compile Include="Data\RssDataReader.cs" />
+    <Compile Include="Utils\UrlReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
