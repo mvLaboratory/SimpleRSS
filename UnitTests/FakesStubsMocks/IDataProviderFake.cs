@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UnitTests
 {
-    class IDataReaderFake : IDataProvider
+    class IDataProviderFake : IDataProvider
     {
         public List<RssItem> delete_readRssItems(Category category)
         {

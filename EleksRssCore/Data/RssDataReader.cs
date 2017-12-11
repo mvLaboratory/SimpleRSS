@@ -7,7 +7,7 @@ namespace EleksRssCore
 {
     public class RssDataReader : IDataReader
     {
-        public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
+            public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
         {
             if (dataProvider == null)
             {

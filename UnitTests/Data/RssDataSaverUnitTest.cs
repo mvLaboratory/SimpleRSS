@@ -8,13 +8,25 @@ namespace UnitTests
     [TestClass]
     public class RssDataSaverUnitTest
     {
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void Test_RssDataReader_Read_Null()
+        [TestInitialize]
+        public void TestInitialize()
         {
-            RssDataReader.Read(null, null);
-            RssDataReader.Read(new IDataReaderFake(), null);
-            RssDataReader.Read(null, new IDataSaverFake());
+            _urlReader = new IDataReaderStub();
+            _dataSaver = new IDataSaverFake();
+            _dataProvider = new IDataProviderFake();
+
+            _dataReader = new RssDataReader(_dataProvider, _dataSaver, _urlReader);
         }
+
+        [TestMethod]
+        public void Test_RssDataReader_Read()
+        {
+
+        }
+
+        private IUrlReader _urlReader;
+        private IDataSaver _dataSaver;
+        private IDataProvider _dataProvider;
+        private IDataReader _dataReader;
     }
 }
