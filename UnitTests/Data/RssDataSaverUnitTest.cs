@@ -11,9 +11,11 @@ namespace UnitTests
         [TestInitialize]
         public void TestInitialize()
         {
+            _storage = new IStorageStub();
+
             _urlReader = new IDataReaderStub();
             _dataSaver = new IDataSaverFake();
-            _dataProvider = new IDataProviderFake();
+            _dataProvider = new IDataProviderFake(_storage);
 
             _dataReader = new RssDataReader(_dataProvider, _dataSaver, _urlReader);
         }
@@ -28,5 +30,6 @@ namespace UnitTests
         private IDataSaver _dataSaver;
         private IDataProvider _dataProvider;
         private IDataReader _dataReader;
+        private IStorageStub _storage;
     }
 }
