@@ -29,8 +29,6 @@ namespace EleksRssCore
 
         public void Read()
         {
-
-
             List<Category> categoriesList = _dataProvider.readRssCategories();
             categoriesList.ForEach(cat =>
             {

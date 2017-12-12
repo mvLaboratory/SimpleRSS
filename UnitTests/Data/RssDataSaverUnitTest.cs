@@ -21,7 +21,7 @@ namespace UnitTests
         [TestMethod]
         public void Test_RssDataReader_Read()
         {
-
+            _dataReader.Read();
         }
 
         private IUrlReader _urlReader;
