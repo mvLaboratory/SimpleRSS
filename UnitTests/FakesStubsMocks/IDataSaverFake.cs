@@ -9,14 +9,22 @@ namespace UnitTests
 {
     class IDataSaverFake : IDataSaver
     {
+        public IDataSaverFake(IStorageStub storage)
+        {
+            _storage = storage;
+        }
+
         public void saveCategory(Category item)
         {
-            throw new NotImplementedException();
+            _storage.Categories.Add(item);
         }
 
         public bool saveRssItems(List<RssItem> items)
         {
-            throw new NotImplementedException();
+            _storage.Items.AddRange(items);
+            return true;
         }
+
+        private IStorageStub _storage;
     }
 }

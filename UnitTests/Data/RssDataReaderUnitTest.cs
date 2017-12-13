@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UnitTests
 {
     [TestClass]
-    public class RssDataSaverUnitTest
+    public class RssDataReaderUnitTest
     {
         [TestInitialize]
         public void TestInitialize()
@@ -14,7 +14,7 @@ namespace UnitTests
             _storage = new IStorageStub();
 
             _urlReader = new IDataReaderStub();
-            _dataSaver = new IDataSaverFake();
+            _dataSaver = new IDataSaverFake(_storage);
             _dataProvider = new IDataProviderFake(_storage);
 
             _dataReader = new RssDataReader(_dataProvider, _dataSaver, _urlReader);
@@ -24,6 +24,8 @@ namespace UnitTests
         public void Test_RssDataReader_Read()
         {
             _dataReader.Read();
+
+            var result = _storage.Items;
         }
 
         private IUrlReader _urlReader;

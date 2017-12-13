@@ -51,11 +51,12 @@
   <ItemGroup>
     <Compile Include="FakesStubsMocks\IDataProviderFake.cs" />
     <Compile Include="FakesStubsMocks\IDataSaverFake.cs" />
+    <Compile Include="FakesStubsMocks\IStorageStub.cs" />
     <Compile Include="FakesStubsMocks\IUrlReaderStub.cs" />
     <Compile Include="Models\CategoryUnitTest.cs" />
     <Compile Include="Models\RssItemUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\RssDataSaverUnitTest.cs" />
+    <Compile Include="Data\RssDataReaderUnitTest.cs" />
     <Compile Include="Storage\StorageManagerUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
