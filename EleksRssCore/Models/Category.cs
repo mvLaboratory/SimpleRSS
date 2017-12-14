@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -48,6 +49,24 @@ namespace EleksRssCore
         public override string ToString()
         {
             return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var category = obj as Category;
+            return category != null &&
+                   Id == category.Id &&
+                   Name == category.Name &&
+                   RssURL == category.RssURL;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1169894586;
+            hashCode = hashCode * -1521134295 + Id.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(RssURL);
+            return hashCode;
         }
 
         private static long _lastId;
