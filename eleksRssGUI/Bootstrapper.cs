@@ -25,6 +25,8 @@ namespace eleksRssGUI
             Container.RegisterType<IDataUpdater, DataUpdater>();
             Container.RegisterType<IDataSaver, RssDataSaver>();
             Container.RegisterType<IStorageManager, StorageManager>();
+            Container.RegisterType<IDataReader, RssDataReader>();
+            Container.RegisterType<IUrlReader, UrlReader>();
             Container.RegisterType<ICategory, Category>();
             Container.RegisterType<IFeedItem, RssItem>();
             Container.RegisterType<IPagingViewModule, PagingViewModule>();
@@ -32,6 +34,9 @@ namespace eleksRssGUI
             Container.RegisterType<INewCategoryViewModel, NewCategoryViewModel>();
             Container.RegisterType<IFeedViewModel, RssViewModel>();
             Container.RegisterType<IUrlBrowserViewModule, UrlBrowserViewModel>();
+
+            var coreInitializer = Container.Resolve<CoreInitializer>();
+            coreInitializer.Run();
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();

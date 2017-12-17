@@ -4,15 +4,18 @@ namespace EleksRssCore
 {
     public class UnitOfWork : IDisposable
     {
-        private IStorage context = new RssStorage();
-        private GenericRepository<Category> categoryRepository;
-        private GenericRepository<RssItem> feedRepository;
+        public UnitOfWork(RssStorage context)
+        {
+            _context = context;
+            _categoryRepository = new GenericRepository<Category>(_context);
+            _feedRepository = new GenericRepository<RssItem>(_context);
+        }
 
         public GenericRepository<Category> CategoryRepository
         {
             get
             {
-                return this.categoryRepository ?? new GenericRepository<Category>(context);
+                return this._categoryRepository ?? new GenericRepository<Category>(_context);
             }
         }
 
@@ -20,22 +23,20 @@ namespace EleksRssCore
         {
             get
             {
-                return this.feedRepository ?? new GenericRepository<RssItem>(context);
+                return this._feedRepository ?? new GenericRepository<RssItem>(_context);
             }
         }
 
         public IStorage RssStorage { get
             {
-                return context;
+                return _context;
             }
         }
 
         public void Save()
         {
-            context.SaveChanges();
+            _context.SaveChanges();
         }
-
-        private bool disposed = false;
 
         protected virtual void Dispose(bool disposing)
         {
@@ -43,7 +44,7 @@ namespace EleksRssCore
             {
                 if (disposing)
                 {
-                    context.Dispose();
+                    _context.Dispose();
                 }
             }
             this.disposed = true;
@@ -54,5 +55,10 @@ namespace EleksRssCore
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+        private RssStorage _context;
+        private GenericRepository<Category> _categoryRepository;
+        private GenericRepository<RssItem> _feedRepository;
+        private bool disposed = false;
     }
 }

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace EleksRssCore
 {
     public class CoreInitializer
     {
-        public CoreInitializer()
+        public CoreInitializer(CoreInitializerParmeters coreParameters)
         {
-            _storageManager = new StorageManager();
-            _dataSaver = new RssDataSaver(_storageManager);
-            _dataProvider = new RssDataProvider(_storageManager);
+            _coreParameters = coreParameters;
         }
 
         async public void Run()
@@ -21,13 +18,11 @@ namespace EleksRssCore
         {
             while (true)
             {
-                RssDataReader.Read(_dataProvider, _dataSaver);
+                _coreParameters.DataReader.Read();
                 await Task.Delay(ConfigurationProvider.UpdateInterval);
             }
         }
 
-        private readonly StorageManager _storageManager;
-        private readonly IDataSaver _dataSaver;
-        private readonly IDataProvider _dataProvider;
+        private readonly CoreInitializerParmeters _coreParameters;
     }
 }
