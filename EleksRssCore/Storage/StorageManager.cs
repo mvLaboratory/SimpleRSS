@@ -9,12 +9,8 @@ namespace EleksRssCore
         public RssStorage Storage { get; private set; }
         public UnitOfWork UnitOfWork { get; set; }
 
-        //TODO:: manage instance
         public StorageManager(UnitOfWork unitOfWork, RssStorage storage)
         {
-
-            //UnitOfWork = new UnitOfWork();
-            //Storage = (RssStorage) UnitOfWork.RssStorage;
             UnitOfWork = unitOfWork ?? throw new ArgumentNullException("unitOfWork");
             Storage = storage ?? throw new ArgumentNullException("storage");
         }
@@ -58,7 +54,8 @@ namespace EleksRssCore
 
         public List<Category> readRssCategoriesItems()
         {
-            return Storage.Categories.ToList();
+             return UnitOfWork.CategoryRepository.Get().ToList();
+            //return Storage.Categories.ToList();
         }
 
         public void SaveRssItem(RssItem itemForSave)
@@ -66,6 +63,7 @@ namespace EleksRssCore
             if (Storage.FeedItems.Any(item => item.Url.Equals(itemForSave.Url)))
                 return;
 
+            UnitOfWork.FeedRepository.context.FeedItems.Attach(itemForSave);
             UnitOfWork.FeedRepository.Insert(itemForSave);
         }
 
@@ -76,8 +74,10 @@ namespace EleksRssCore
 
         public void SaveCategory(Category item)
         {
-            Storage.Categories.Add(item);
-            Storage.SaveChanges();
+            UnitOfWork.CategoryRepository.Insert(item);
+            UnitOfWork.Save();
+            //Storage.Categories.Add(item);
+            //Storage.SaveChanges();
         }
 
         private static DateTime lastReadedDate;
