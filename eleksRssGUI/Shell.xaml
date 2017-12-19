@@ -3,16 +3,16 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Name="ShellWindow"
-        Title="Eleks RSS reader" Height="600" Width="900">
+        Title="Eleks RSS reader" Height="{Binding WindowHeight, Mode=OneWayToSource}"  Width="900">
 
-        <Border Padding="10" x:Name="WindowBorder">
-        <Grid>
+    <Border Padding="5" x:Name="WindowBorder" VerticalAlignment="Stretch">
+        <Grid VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
-            <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion"/>
-            <ItemsControl  Grid.Row="1" Name="PagingRegion" prism:RegionManager.RegionName="PagingRegion"/>
+            <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+            <ItemsControl Grid.Row="1" Name="PagingRegion" prism:RegionManager.RegionName="PagingRegion"/>
         </Grid>
     </Border>
 </Window>

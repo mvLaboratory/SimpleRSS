@@ -55,7 +55,6 @@ namespace EleksRssCore
         public List<Category> readRssCategoriesItems()
         {
              return UnitOfWork.CategoryRepository.Get().ToList();
-            //return Storage.Categories.ToList();
         }
 
         public void SaveRssItem(RssItem itemForSave)
@@ -76,8 +75,6 @@ namespace EleksRssCore
         {
             UnitOfWork.CategoryRepository.Insert(item);
             UnitOfWork.Save();
-            //Storage.Categories.Add(item);
-            //Storage.SaveChanges();
         }
 
         private static DateTime lastReadedDate;
