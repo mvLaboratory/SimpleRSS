@@ -1,6 +1,5 @@
 ﻿using GuiEnvironment;
 using System;
-using System.Windows;
 
 namespace eleksRssGUI
 {
@@ -27,6 +26,6 @@ namespace eleksRssGUI
             _windowHeight = height;
         }
 
-        private Int32 _windowHeight = 500;
+        private Int32 _windowHeight = 700;
     }
 }

@@ -49,7 +49,7 @@ namespace DesktopMainModule
             _container = container;
 
             SelectedTabIndex = 0;
-            WindowHeight = 675;
+            WindowHeight = 500;
         }
         
         private void openBrowser(object url)
