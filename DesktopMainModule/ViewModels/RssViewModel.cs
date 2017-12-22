@@ -11,7 +11,17 @@ namespace DesktopMainModule
     {
         public ObservableRssItems ObservableRssItems { get; private set; }
         public Int32 SelectedTabIndex {  get; set; }
-        public Int32 WindwHeight { get; set; }
+        public Int32 WindowHeight {
+            get
+            {
+                return _windowHeight;
+            }
+            set
+            {
+                _windowHeight = value;
+            }
+        }
+
         public ICommand RssItemDbClick
         {
             get {
@@ -23,7 +33,6 @@ namespace DesktopMainModule
                 return _rssItemDbClick;
             }
         }
-
 
         public RssViewModel(IEventAggregator eventAggregator, ObservableRssItems rssItemsList, IRegionManager regionManager, IUnityContainer container)
         {
@@ -40,7 +49,7 @@ namespace DesktopMainModule
             _container = container;
 
             SelectedTabIndex = 0;
-            WindwHeight = 830;
+            WindowHeight = 500;
         }
         
         private void openBrowser(object url)
@@ -68,5 +77,6 @@ namespace DesktopMainModule
         private ICommand _rssItemDbClick;
         private IRegionManager _regionManager;
         private IUnityContainer _container;
+        private Int32 _windowHeight;
     }
 }

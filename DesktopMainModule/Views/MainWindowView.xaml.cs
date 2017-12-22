@@ -1,8 +1,4 @@
-﻿using GuiEnvironment;
-using Prism.Regions;
-using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace DesktopMainModule
 {

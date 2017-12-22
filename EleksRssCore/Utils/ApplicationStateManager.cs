@@ -5,11 +5,12 @@ namespace EleksRssCore
     public class ApplicationStateManager
     {
         public static Category currentCategory { get; set; }
+
         public static Int32 itemsPerPage
         {
             get
             {
-                return 10;
+                return ConfigurationProvider.ItemsPerPage;
             }
         }
         public static Int32 currentPage {

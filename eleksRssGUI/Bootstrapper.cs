@@ -15,7 +15,7 @@ namespace eleksRssGUI
     {
         protected override DependencyObject CreateShell()
         {
-            return new Shell();
+            return new Shell(new ShellViewModule());
         }
 
         protected override void InitializeShell()
@@ -30,6 +30,7 @@ namespace eleksRssGUI
             Container.RegisterType<ICategory, Category>();
             Container.RegisterType<IFeedItem, RssItem>();
             Container.RegisterType<IPagingViewModule, PagingViewModule>();
+            Container.RegisterType<IShellViewModel, ShellViewModule>();
             Container.RegisterType<ICategoriesListViewModel, CategoriesListViewModel>();
             Container.RegisterType<INewCategoryViewModel, NewCategoryViewModel>();
             Container.RegisterType<IFeedViewModel, RssViewModel>();

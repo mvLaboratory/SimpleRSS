@@ -4,9 +4,10 @@ namespace eleksRssGUI
 {
     public partial class Shell : Window
     {
-        public Shell()
+        public Shell(IShellViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }
