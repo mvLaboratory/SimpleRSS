@@ -18,8 +18,13 @@ namespace DesktopMainModule
             }
             set
             {
-                _windowHeight = value;
+                setHeight(value);
             }
+        }
+
+        private void setHeight(Int32 value)
+        {
+            _windowHeight = value;
         }
 
         public ICommand RssItemDbClick
@@ -49,7 +54,7 @@ namespace DesktopMainModule
             _container = container;
 
             SelectedTabIndex = 0;
-            WindowHeight = 500;
+            WindowHeight = 515;
         }
         
         private void openBrowser(object url)

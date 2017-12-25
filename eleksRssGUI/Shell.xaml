@@ -5,7 +5,7 @@
         x:Name="ShellWindow"
         Title="Eleks RSS reader" Height="600"  Width="900">
 
-    <Border Padding="5" x:Name="WindowBorder" VerticalAlignment="Stretch">
+    <!--<Border Padding="5" x:Name="WindowBorder" VerticalAlignment="Stretch">-->
         <Grid VerticalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -14,5 +14,5 @@
             <ItemsControl Name="MainRegion" prism:RegionManager.RegionName="MainRegion" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
             <ItemsControl Grid.Row="1" Name="PagingRegion" prism:RegionManager.RegionName="PagingRegion"/>
         </Grid>
-    </Border>
+    <!--</Border>-->
 </Window>
