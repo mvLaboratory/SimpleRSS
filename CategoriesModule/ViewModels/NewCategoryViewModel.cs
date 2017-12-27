@@ -15,6 +15,7 @@ namespace CategoriesModule
         public String Name { get; set; }
         public String URL { get; set; }
         public ICommand SaveCategoryCommand { get; set; }
+        public ICommand CancelCategoryCommand { get; set; }
 
         public NewCategoryViewModel(IEventAggregator eventAggregator, IDataSaver dataSaver)
         {
@@ -22,6 +23,7 @@ namespace CategoriesModule
             _dataSaver = dataSaver;
 
             SaveCategoryCommand = new RelayCommand(saveCategory);
+            CancelCategoryCommand = new RelayCommand(cancel);
         }
 
         private void saveCategory(object @params)
@@ -31,6 +33,11 @@ namespace CategoriesModule
 
             _eventAggregator.GetEvent<ChangeTabEvent>().Publish(0);
             _eventAggregator.GetEvent<CategoriesListChangedEvent>().Publish(newCategory);
+        }
+
+        private void cancel(object @params)
+        {
+            _eventAggregator.GetEvent<ChangeTabEvent>().Publish(0);
         }
 
         private IEventAggregator _eventAggregator;
