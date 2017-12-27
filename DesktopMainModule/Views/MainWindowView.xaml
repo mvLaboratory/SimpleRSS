@@ -1,10 +1,13 @@
-﻿<UserControl x:Class="DesktopMainModule.MainWindowView"
+﻿<UserControl x:Class="DesktopMainModule.MainWindowView"           
                 xmlns:prism="http://www.codeplex.com/prism"
                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                mc:Ignorable="d"         
                 xmlns:DesktopMainModule="clr-namespace:DesktopMainModule" 
-                Width="Auto" Height="{Binding WindowHeight}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
-    
+                Height="Auto" MinHeight="515"
+                VerticalAlignment="Stretch" VerticalContentAlignment="Stretch">
     <UserControl.Resources>
         <DataTemplate x:Key="RssItemDataTemplate">
             <StackPanel Tag="{Binding Path=Url, FallbackValue=[Empty URL]}" HorizontalAlignment="Stretch">
@@ -28,39 +31,42 @@
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" SelectedIndex="{Binding SelectedTabIndex}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" d:IsHidden="True">
+            <TabControl.ItemContainerStyle>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </Style>
+            </TabControl.ItemContainerStyle>
+            <TabItem Header="">
+                <DockPanel x:Name="RssDockPanel" HorizontalAlignment="Stretch">
+                    <StackPanel DockPanel.Dock="Top">
+                        <!--<Button HorizontalAlignment="Right" Width="100">Settings</Button> -->
+                    </StackPanel>
+                    <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
+                        <ItemsControl Name="CategotiesViewRegion" prism:RegionManager.RegionName="CategotiesViewRegion"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Bottom"/>
+                    <StackPanel x:Name="RssItemsPanel" HorizontalAlignment="Stretch">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ListBox Grid.Row="0" MinHeight="515" MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=ActualHeight}"  ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemTemplate="{DynamicResource RssItemDataTemplate}"/>
+                        </Grid>
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="">
+                <ItemsControl Name="UrlBrowserRegion" prism:RegionManager.RegionName="UrlBrowserRegion"/>
+            </TabItem>
+            <TabItem Header="">
+                <ItemsControl Name="NewCategoryRegion" prism:RegionManager.RegionName="NewCategoryRegion"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
 
-    <TabControl SelectedIndex="{Binding SelectedTabIndex}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        <TabControl.ItemContainerStyle>
-            <Style TargetType="{x:Type TabItem}">
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </Style>
-        </TabControl.ItemContainerStyle>
-        <TabItem  Header="">
-            <DockPanel x:Name="RssDockPanel" HorizontalAlignment="Stretch">
-                <StackPanel DockPanel.Dock="Top">
-                    <!--<Button HorizontalAlignment="Right" Width="100">Settings</Button> -->
-                </StackPanel>
-                <StackPanel x:Name="CategoriesPanel" DockPanel.Dock="Left">
-                    <ItemsControl Name="CategotiesViewRegion" prism:RegionManager.RegionName="CategotiesViewRegion"/>
-                </StackPanel>
-                <StackPanel DockPanel.Dock="Bottom">
-                   
-                </StackPanel>
-                <StackPanel x:Name="RssItemsPanel" HorizontalAlignment="Stretch">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <ListBox Grid.Row="0" Height="{Binding WindowHeight}" ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemTemplate="{DynamicResource RssItemDataTemplate}"/>
-                    </Grid>
-                </StackPanel>
-            </DockPanel>
-        </TabItem>
-        <TabItem Header="">
-            <ItemsControl Name="UrlBrowserRegion" prism:RegionManager.RegionName="UrlBrowserRegion"/>
-        </TabItem>
-        <TabItem Header="">
-            <ItemsControl Name="NewCategoryRegion" prism:RegionManager.RegionName="NewCategoryRegion"/>
-        </TabItem>
-    </TabControl>
 </UserControl>
