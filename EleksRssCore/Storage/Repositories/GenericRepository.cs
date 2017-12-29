@@ -70,6 +70,17 @@ namespace EleksRssCore
             dbSet.Remove(entityToDelete);
         }
 
+        public virtual void Delete(Expression<Func<TEntity, bool>> filter = null)
+        {
+            IQueryable<TEntity> query = dbSet;
+
+            if (filter == null)
+            {
+                return;
+            }
+            dbSet.RemoveRange(query.Where(filter));
+        }
+
         public virtual void Update(TEntity entityToUpdate)
         {
             dbSet.Attach(entityToUpdate);

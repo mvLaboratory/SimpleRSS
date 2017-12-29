@@ -77,6 +77,13 @@ namespace EleksRssCore
             UnitOfWork.Save();
         }
 
+        public void DeleteOldNews()
+        {
+            var date = DateTime.Now.AddMonths(-3);
+            UnitOfWork.FeedRepository.Delete(item => item.PublicationdDate < date);
+            UnitOfWork.Save();
+        }
+
         private static DateTime lastReadedDate;
     }
 }
