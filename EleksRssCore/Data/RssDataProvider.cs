@@ -22,18 +22,6 @@ namespace EleksRssCore
             return result;
         }
 
-        public List<RssItem> delete_readRssItems(Category category)
-        {
-            var items = _storageManager.readRssItems(category);
-            var result = new List<RssItem>();
-            foreach (var item in items)
-            {
-                result.Add(item);
-            }
-
-            return result;
-        }
-
         public List<Category> readRssCategories()
         {
             var items = _storageManager.readRssCategoriesItems();

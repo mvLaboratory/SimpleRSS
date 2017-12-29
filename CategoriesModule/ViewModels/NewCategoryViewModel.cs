@@ -33,6 +33,9 @@ namespace CategoriesModule
 
             _eventAggregator.GetEvent<ChangeTabEvent>().Publish(0);
             _eventAggregator.GetEvent<CategoriesListChangedEvent>().Publish(newCategory);
+
+            GuiManager.setCurrentCategory(newCategory);
+           _eventAggregator.GetEvent<UpdateRequestEvent>().Publish(true);
         }
 
         private void cancel(object @params)

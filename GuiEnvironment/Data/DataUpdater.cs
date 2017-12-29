@@ -7,10 +7,11 @@ namespace GuiEnvironment
 {
     public class DataUpdater: IDataUpdater
     {
-        public DataUpdater(IEventAggregator eventAggregator, IDataProvider dataProvider)
+        public DataUpdater(IEventAggregator eventAggregator, IDataProvider dataProvider, IDataReader dataReader)
         {
             _eventAggregator = eventAggregator;
             _dataProvider = dataProvider;
+            _dataReader = dataReader;
 
             UpdateRequestEvent updateRequestEvent = _eventAggregator.GetEvent<UpdateRequestEvent>();
             _subscriptionToken = updateRequestEvent.Subscribe(updateRequestEventHandler, ThreadOption.UIThread, false, UpdateRequestEventFilter);
@@ -33,6 +34,7 @@ namespace GuiEnvironment
 
         private void update()
         {
+            _dataReader.Read();
             var itemsList = _dataProvider.readRssItems();
             _eventAggregator.GetEvent<RssItemsListChangedEvent>().Publish(itemsList);
             _eventAggregator.GetEvent<PagesChangedEvent>().Publish(new PagesDataStructure());
@@ -49,6 +51,7 @@ namespace GuiEnvironment
         }
 
         private IDataProvider _dataProvider;
+        private IDataReader _dataReader;
         private IEventAggregator _eventAggregator;
         private SubscriptionToken _subscriptionToken;
     }
