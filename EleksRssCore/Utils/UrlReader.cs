@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
 
@@ -10,9 +11,16 @@ namespace EleksRssCore
         {
             SyndicationFeed result = null;
 
-            using (var reader = XmlReader.Create(url))
+            try
             {
-                result = SyndicationFeed.Load(reader);
+                using (var reader = XmlReader.Create(url))
+                {
+                    result = SyndicationFeed.Load(reader);
+                }
+            }
+            catch (WebException ex)
+            {
+                //TODO:: log it
             }
             return result;
         }

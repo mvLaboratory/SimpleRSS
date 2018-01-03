@@ -22,6 +22,11 @@ namespace EleksRssCore
             Configuration.ProxyCreationEnabled = false;
         }
 
+        public override DbSet<TEntity> Set<TEntity>()
+        {
+            return base.Set<TEntity>();
+        }
+
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<RssItem> FeedItems { get; set; }
     }

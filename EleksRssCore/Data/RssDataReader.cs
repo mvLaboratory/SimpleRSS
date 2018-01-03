@@ -34,6 +34,7 @@ namespace EleksRssCore
             {
                 String _url = cat.RssURL;
                 SyndicationFeed rssFeed = _urlReader.ReadUrl(_url);
+
                 if (rssFeed != null && rssFeed.Items.Any())
                 {
                     saveRssFeed(rssFeed, _dataSaver, cat);
