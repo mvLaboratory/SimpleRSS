@@ -11,6 +11,7 @@ namespace EleksRssCore
 
         async public void Run()
         {
+            _coreParameters.StorageManager.DeleteOldNews();
             await Task.Run(() => applicationRoutine());
         }
 

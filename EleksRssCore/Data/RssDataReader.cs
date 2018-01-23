@@ -7,24 +7,11 @@ namespace EleksRssCore
 {
     public class RssDataReader : IDataReader
     {
-            public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
+        public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
         {
-            if (dataProvider == null)
-            {
-                throw new ArgumentNullException("dataProvider");
-            }
-            if (dataSaver == null)
-            {
-                throw new ArgumentNullException("dataSaver");
-            }
-            if (urlReader == null)
-            {
-                throw new ArgumentNullException("urlReader");
-            }
-
-            _urlReader = urlReader;
-            _dataProvider = dataProvider;
-            _dataSaver = dataSaver;
+            _urlReader = urlReader ?? throw new ArgumentNullException("urlReader");
+            _dataProvider = dataProvider ?? throw new ArgumentNullException("dataProvider");
+            _dataSaver = dataSaver ?? throw new ArgumentNullException("dataSaver");
         }
 
         public void Read()
@@ -34,6 +21,7 @@ namespace EleksRssCore
             {
                 String _url = cat.RssURL;
                 SyndicationFeed rssFeed = _urlReader.ReadUrl(_url);
+
                 if (rssFeed != null && rssFeed.Items.Any())
                 {
                     saveRssFeed(rssFeed, _dataSaver, cat);

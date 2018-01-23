@@ -17,5 +17,7 @@ namespace EleksRssCore
         void SaveRssItem(RssItem item);
 
         void SaveCategory(Category item);
+
+        void DeleteOldNews();
     }
 }

@@ -55,7 +55,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <ListBox Grid.Row="0" MinHeight="515" MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=ActualHeight}"  ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemTemplate="{DynamicResource RssItemDataTemplate}"/>
+                            <ListBox Grid.Row="0" MinHeight="515" MaxHeight="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=ActualHeight}"  ItemsSource="{Binding ObservableRssItems}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemTemplate="{DynamicResource RssItemDataTemplate}"/>
                         </Grid>
                     </StackPanel>
                 </DockPanel>

@@ -11,21 +11,6 @@ namespace DesktopMainModule
     {
         public ObservableRssItems ObservableRssItems { get; private set; }
         public Int32 SelectedTabIndex {  get; set; }
-        public Int32 WindowHeight {
-            get
-            {
-                return _windowHeight;
-            }
-            set
-            {
-                setHeight(value);
-            }
-        }
-
-        private void setHeight(Int32 value)
-        {
-            _windowHeight = value;
-        }
 
         public ICommand RssItemDbClick
         {
@@ -54,7 +39,6 @@ namespace DesktopMainModule
             _container = container;
 
             SelectedTabIndex = 0;
-            WindowHeight = 515;
         }
         
         private void openBrowser(object url)
@@ -82,6 +66,5 @@ namespace DesktopMainModule
         private ICommand _rssItemDbClick;
         private IRegionManager _regionManager;
         private IUnityContainer _container;
-        private Int32 _windowHeight;
     }
 }
