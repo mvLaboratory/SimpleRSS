@@ -6,24 +6,31 @@
              Width="Auto">
     <UserControl.Resources>
         <DataTemplate x:Key="RssCategoryDataTemplate">
-            <StackPanel>
+            <StackPanel Margin="0 0 0 10">
                 <TextBlock Text="{Binding Path=Name, FallbackValue=[Empty]}"/>
-                <TextBlock Text="{Binding Path=RssURL, FallbackValue=[Empty]}"/>
+                <!-- <TextBlock Text="{Binding Path=RssURL, FallbackValue=[Empty]}"/> -->
             </StackPanel>
         </DataTemplate>
+
+        <Style x:Key="SidePanelBorder">
+            <Setter Property="Control.BorderBrush" Value="#555555" />
+            <Setter Property="Control.BorderThickness" Value="1" />
+        </Style>
     </UserControl.Resources>
-    
-    <StackPanel>
-        <ListBox x:Name="CategoriesList" ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
-            ItemTemplate="{DynamicResource RssCategoryDataTemplate}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <i:InvokeCommandAction Command="{Binding SelectCategoryCommand}"
-                                     CommandParameter="{Binding ElementName=CategoriesList, Path=SelectedItem}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-        </ListBox>
+
+    <Border Style="{StaticResource SidePanelBorder}">
+        <StackPanel>
+            <ListBox x:Name="CategoriesList" ItemsSource="{Binding ObservableCategories}" VerticalAlignment="Stretch" Width="200"
+                ItemTemplate="{DynamicResource RssCategoryDataTemplate}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding SelectCategoryCommand}"
+                                         CommandParameter="{Binding ElementName=CategoriesList, Path=SelectedItem}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
         
-        <Button Content="+" Command="{Binding OpenNewCategoryTabCommand}"/>
-    </StackPanel>
+            <Button Content="+" Command="{Binding OpenNewCategoryTabCommand}"/>
+        </StackPanel>
+    </Border>
 </UserControl>
