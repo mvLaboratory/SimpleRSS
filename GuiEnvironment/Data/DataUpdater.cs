@@ -14,7 +14,7 @@ namespace GuiEnvironment
             _dataReader = dataReader;
 
             UpdateRequestEvent updateRequestEvent = _eventAggregator.GetEvent<UpdateRequestEvent>();
-            _subscriptionToken = updateRequestEvent.Subscribe(updateRequestEventHandler, ThreadOption.UIThread, false, UpdateRequestEventFilter);
+            _subscriptionToken = updateRequestEvent.Subscribe(updateRequestEventHandler, ThreadOption.BackgroundThread, false, UpdateRequestEventFilter);
         }
 
         async public void Start()
