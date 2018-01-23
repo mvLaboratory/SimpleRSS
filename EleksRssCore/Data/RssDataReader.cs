@@ -9,22 +9,9 @@ namespace EleksRssCore
     {
         public RssDataReader(IDataProvider dataProvider, IDataSaver dataSaver, IUrlReader urlReader)
         {
-            if (dataProvider == null)
-            {
-                throw new ArgumentNullException("dataProvider");
-            }
-            if (dataSaver == null)
-            {
-                throw new ArgumentNullException("dataSaver");
-            }
-            if (urlReader == null)
-            {
-                throw new ArgumentNullException("urlReader");
-            }
-
-            _urlReader = urlReader;
-            _dataProvider = dataProvider;
-            _dataSaver = dataSaver;
+            _urlReader = urlReader ?? throw new ArgumentNullException("urlReader");
+            _dataProvider = dataProvider ?? throw new ArgumentNullException("dataProvider");
+            _dataSaver = dataSaver ?? throw new ArgumentNullException("dataSaver");
         }
 
         public void Read()
