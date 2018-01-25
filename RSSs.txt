@@ -1,0 +1,45 @@
+pravda -https://www.pravda.com.ua/rss/view_mainnews/
+
+ASP.NET News:http://www.asp.net/rss/news
+
+ASP.NET Daily Articles: http://www.asp.net/community/articles/rss.ashx
+
+ASP.NET Videos: http://www.asp.net/rss/videos
+
+Latest Microsoft Blogs: http://weblogs.asp.net/aspnet-team/rss.aspx
+
+MSDN Online Media Blog: http://blogs.msdn.com/msdnwebcasts/rss.xml
+
+MSDN SQL Server Headlines: http://www.microsoft.com/feeds/msdn/en-us/sql/sqldev_en_us.xml
+
+MSDN Code Gallery: http://code.msdn.microsoft.com/rss.ashx
+
+C# Future: http://code.msdn.microsoft.com/csharpfuture/Project/ProjectRss.aspx
+
+Channel 9: http://channel9.msdn.com/Feeds/RSS/
+
+Free Microsoft E-Learning resources: http://learning.microsoft.com/rss/en-US/free?brand=Learning
+
+CodePlex: http://www.codeplex.com/rss.ashx
+
+The Code Project Latest Articles: http://www.codeproject.com/webservices/articlerss.aspx?cat=8
+
+patterns & practices – Enterprise Library: http://www.codeplex.com/entlib/Project/ProjectRss.aspx
+
+CodeBetter.Com: http://feeds.feedburner.com/CodeBetter
+
+"How Do I?" Videos: http://www.microsoft.com/feeds/msdn/en-us/HDI/Home-HDI.xml
+
+ScottGu's Blog: http://weblogs.asp.net/scottgu/rss.aspx
+
+David Haydn http://feeds.feedburner.com/PnPGuidance
+
+J.D. Meier's Blog: http://blogs.msdn.com/jmeier/rss.xml
+
+ASP.NET MVC: http://feeds.feedburner.com/wekeroad/EeKc
+
+ASP.Net, C#, SQL: http://feeds.feedburner.com/DotnetGuts
+
+ASPAlliance.com: http://aspalliance.com/rss.aspx
+
+ASPAlliance.com: http://aspalliance.com/videos/rss.aspx

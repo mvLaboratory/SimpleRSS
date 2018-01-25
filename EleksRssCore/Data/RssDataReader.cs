@@ -31,7 +31,7 @@ namespace EleksRssCore
 
         private static bool saveRssFeed(SyndicationFeed rssFeed, IDataSaver dataSaver, Category category)
         {
-            List<RssItem> rssItems = rssFeed.Items.OrderBy(item => item.PublishDate.DateTime).Select(item => new RssItem(item.PublishDate.DateTime, item.Title.Text, "", item.Id, category)).ToList();
+            List<RssItem> rssItems = rssFeed.Items.OrderBy(item => item.PublishDate.DateTime).Select(item => new RssItem(item.PublishDate.DateTime, item.Title.Text, "", item.Links.Any() ? item.Links[0].Uri.AbsoluteUri : item.Id, category)).ToList();
 
             dataSaver.saveRssItems(rssItems);
             return true;
