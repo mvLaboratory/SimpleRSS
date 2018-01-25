@@ -31,7 +31,7 @@ namespace EleksRssCore
             }
             set
             {
-                _pageCount = (Int32) Math.Ceiling((Double)(value / itemsPerPage));
+                _pageCount = (Int32)Math.Ceiling(((Double)value / (Double)itemsPerPage));
             }
         }
 
