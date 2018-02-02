@@ -4,6 +4,7 @@ using GuiEnvironment;
 using DesktopMainModule;
 using Prism.Events;
 using EleksRssCore;
+using NLog;
 
 namespace CategoriesModule
 {
@@ -34,6 +35,7 @@ namespace CategoriesModule
         {
             if (! (@params is Category))
             {
+                _logger.Error("SelectCategory: param is not a Category");
                 throw new ArgumentException("papam");
             }
 
@@ -43,5 +45,6 @@ namespace CategoriesModule
 
         private IEventAggregator _eventAggregator;
         private SubscriptionToken _subscriptionToken;
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
     }
 }

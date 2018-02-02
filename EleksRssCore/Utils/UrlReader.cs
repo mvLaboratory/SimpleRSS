@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Net;
 using System.ServiceModel.Syndication;
 using System.Xml;
@@ -18,11 +19,12 @@ namespace EleksRssCore
                     result = SyndicationFeed.Load(reader);
                 }
             }
-            catch (WebException ex)
+            catch(WebException ex)
             {
-                //TODO:: log it
+                _logger.Error(ex.Message);
             }
             return result;
         }
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
     }
 }

@@ -3,9 +3,11 @@ using DesktopMainModule;
 using EleksRssCore;
 using GuiEnvironment;
 using Microsoft.Practices.Unity;
+using NLog;
 using PagingModule;
 using Prism.Modularity;
 using Prism.Unity;
+using System;
 using System.Windows;
 using UrlBrowserModule;
 
@@ -21,6 +23,8 @@ namespace eleksRssGUI
         protected override void InitializeShell()
         {
             base.InitializeShell();
+
+            IUnityContainer Container = new UnityContainer();
             Container.RegisterType<IDataProvider, RssDataProvider>();
             Container.RegisterType<IDataUpdater, DataUpdater>();
             Container.RegisterType<IDataSaver, RssDataSaver>();
@@ -37,7 +41,14 @@ namespace eleksRssGUI
             Container.RegisterType<IUrlBrowserViewModule, UrlBrowserViewModel>();
 
             var coreInitializer = Container.Resolve<CoreInitializer>();
-            coreInitializer.Run();
+            try
+            {
+                coreInitializer.Run();
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+            }
 
             Application.Current.MainWindow = (Window)this.Shell;
             Application.Current.MainWindow.Show();
@@ -57,5 +68,7 @@ namespace eleksRssGUI
             moduleCatalog.AddModule(categoriesModule);
             moduleCatalog.AddModule(pagingModule);
         }
+
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
     }
 }

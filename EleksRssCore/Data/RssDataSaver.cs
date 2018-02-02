@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using NLog;
+using System;
+using System.Collections.Generic;
 
 namespace EleksRssCore
 {
@@ -16,11 +18,19 @@ namespace EleksRssCore
 
         public bool saveRssItems(List<RssItem> items)
         {
-            items.ForEach(item => _storageManager.SaveRssItem(item));
-            _storageManager.SaveFeedItems();
+            try
+            {
+                items.ForEach(item => _storageManager.SaveRssItem(item));
+                _storageManager.SaveFeedItems();
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex);
+            }
             return true;
         }
 
         private IStorageManager _storageManager;
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
     }
 }

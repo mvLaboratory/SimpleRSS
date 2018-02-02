@@ -1,4 +1,5 @@
 ﻿using GuiEnvironment;
+using NLog;
 using Prism.Events;
 using System;
 using System.Windows.Input;
@@ -42,7 +43,7 @@ namespace PagingModule
             }
             catch(Exception ex)
             {
-                //TODO:: Handle exceoption; creatre a logger class
+                _logger.Error(ex.Message);
             }
             
             GuiManager.setCurrentPage(pageOffset);
@@ -62,5 +63,6 @@ namespace PagingModule
         private String _pagingText;
         private IEventAggregator _eventAggregator;
         private SubscriptionToken _subscriptionToken;
+        private static Logger _logger = LogManager.GetCurrentClassLogger();
     }
 }
